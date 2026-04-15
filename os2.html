@@ -6,10 +6,21 @@
     <title>The Manifesto | OSx2 Limemade</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .bg-grid { background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px); background-size: 30px 30px; }
         .lime-glow { box-shadow: 0 0 50px -10px rgba(132, 204, 22, 0.3); }
+        .placeholder-image {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 selection:bg-lime-300 selection:text-lime-900">
@@ -17,7 +28,7 @@
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="group flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold transition">
-                <span class="group-hover:-translate-x-1 transition-transform">&larr;</span>
+                <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
                 <span>Back to RTECH</span>
             </a>
             <div class="px-3 py-1 bg-slate-950 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded">Project: Limemade</div>
@@ -38,15 +49,24 @@
                     A New Era of Personal Computing. <br/>
                     <span class="text-slate-900 underline decoration-lime-500 decoration-4 underline-offset-8">Simpler. Faster. Yours.</span>
                 </p>
+
+                <!-- Image Placeholder for Product -->
+                <div class="mt-16 w-full h-64 placeholder-image rounded-[3rem]">
+                    [Product Interface Screenshot Placeholder]
+                </div>
             </div>
 
             <!-- Manifesto Sections -->
             <div class="space-y-12">
                 <!-- What is OSx2 -->
                 <section class="bg-white p-10 md:p-16 rounded-[3rem] border border-slate-200 shadow-xl lime-glow relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-8 text-8xl opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">🍋</div>
+                    <div class="absolute top-0 right-0 p-8 text-slate-100 group-hover:text-lime-50 transition-colors">
+                        <i data-lucide="help-circle" class="w-24 h-24"></i>
+                    </div>
                     <h2 class="text-3xl font-black mb-8 flex items-center gap-4">
-                        <span class="w-12 h-12 bg-lime-500 rounded-2xl flex items-center justify-center text-white text-xl">?</span>
+                        <span class="w-12 h-12 bg-lime-500 rounded-2xl flex items-center justify-center text-white text-xl">
+                            <i data-lucide="help-circle" class="w-6 h-6"></i>
+                        </span>
                         What is OSx2?
                     </h2>
                     <p class="text-xl leading-relaxed text-slate-600">
@@ -58,7 +78,9 @@
 
                 <!-- The Pillars -->
                 <div class="grid md:grid-cols-1 gap-8">
-                    <h2 class="text-4xl font-black text-slate-950 px-6 pt-12">🏛️ The Three Sovereign Pillars</h2>
+                    <h2 class="text-4xl font-black text-slate-950 px-6 pt-12 flex items-center gap-4">
+                        <i data-lucide="landmark" class="w-8 h-8 text-lime-500"></i> The Three Sovereign Pillars
+                    </h2>
 
                     <div class="grid md:grid-cols-3 gap-6">
                         <div class="bg-slate-950 text-white p-8 rounded-[2.5rem] shadow-2xl hover:-translate-y-2 transition-transform">
@@ -92,18 +114,24 @@
 
                 <!-- License -->
                 <section class="bg-white p-12 rounded-[3rem] border-2 border-slate-900 shadow-2xl relative">
-                    <div class="absolute -top-6 -right-6 w-16 h-16 bg-lime-500 rounded-full flex items-center justify-center text-3xl animate-bounce">🛡️</div>
+                    <div class="absolute -top-6 -right-6 w-16 h-16 bg-lime-500 rounded-full flex items-center justify-center text-white shadow-xl animate-bounce">
+                        <i data-lucide="shield" class="w-8 h-8"></i>
+                    </div>
                     <h2 class="text-3xl font-black mb-8">The Sovereign License</h2>
                     <div class="space-y-8">
                         <div class="flex gap-6">
-                            <div class="text-4xl">🔒</div>
+                            <div class="w-12 h-12 flex-shrink-0 bg-slate-100 rounded-xl flex items-center justify-center text-slate-900">
+                                <i data-lucide="lock" class="w-6 h-6"></i>
+                            </div>
                             <div>
                                 <h4 class="font-black text-lg mb-1">Your Data</h4>
                                 <p class="text-slate-600">We don't want it. We don't track it. We don't see it. Period.</p>
                             </div>
                         </div>
                         <div class="flex gap-6">
-                            <div class="text-4xl">🎨</div>
+                            <div class="w-12 h-12 flex-shrink-0 bg-slate-100 rounded-xl flex items-center justify-center text-slate-900">
+                                <i data-lucide="palette" class="w-6 h-6"></i>
+                            </div>
                             <div>
                                 <h4 class="font-black text-lg mb-1">Your Hardware</h4>
                                 <p class="text-slate-600">You have the right to "Aggressively Decorate" (modify) your system. We provide the tools; you provide the vision.</p>
@@ -151,16 +179,22 @@
                 </section>
 
                 <!-- CTA -->
-                <section class="text-center py-20">
+                <section class="text-center py-20 bg-slate-900 rounded-[3rem] p-12 text-white">
                     <h2 class="text-5xl font-black tracking-tighter mb-8">Prepare to reclaim your machine.</h2>
-                    <p class="text-slate-500 mb-12 text-lg max-w-xl mx-auto">
+                    <p class="text-slate-400 mb-12 text-lg max-w-xl mx-auto">
                         OSx2 is the "Limemade" experience: sharp, refreshing, and exactly what you need.
                     </p>
-                    <div class="inline-flex flex-col md:flex-row items-center gap-6">
-                        <div class="px-10 py-5 bg-lime-500 text-white font-black text-xl rounded-full shadow-2xl shadow-lime-500/40 animate-pulse">
-                            Coming Q4 2024
+                    <div class="flex flex-col items-center gap-6">
+                        <div class="inline-flex flex-col md:flex-row items-center gap-6">
+                            <div class="px-10 py-5 bg-lime-500 text-white font-black text-xl rounded-full shadow-2xl shadow-lime-500/40">
+                                Coming Q4 2024
+                            </div>
+                            <a href="#" class="px-10 py-5 bg-white text-slate-900 font-black text-xl rounded-full shadow-xl hover:bg-slate-100 transition flex items-center gap-3">
+                                <i data-lucide="download" class="w-6 h-6"></i>
+                                Download OSx2 ISO
+                            </a>
                         </div>
-                        <a href="index.html" class="font-bold text-slate-400 hover:text-slate-950 transition">Back to Home</a>
+                        <a href="index.html" class="font-bold text-slate-500 hover:text-white transition">Back to Home</a>
                     </div>
                 </section>
             </div>
@@ -170,5 +204,9 @@
     <footer class="py-12 border-t border-slate-100 text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">
         RTECH-technologies Research & Development Division
     </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
