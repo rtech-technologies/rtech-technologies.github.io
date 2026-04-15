@@ -3,161 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSx2 Limemade | Consumer Manifesto | RTECH-technologies</title>
+    <title>The Manifesto | OSx2 Limemade</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .bg-grid { background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px); background-size: 30px 30px; }
+        .lime-glow { box-shadow: 0 0 50px -10px rgba(132, 204, 22, 0.3); }
     </style>
 </head>
-<body class="bg-white text-slate-900 selection:bg-lime-200">
-    <!-- Corporate Header -->
-    <nav class="bg-white border-b border-slate-100 sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium transition">
-                <span>&larr;</span> Back to Corporate Site
+<body class="bg-slate-50 text-slate-900 selection:bg-lime-300 selection:text-lime-900">
+    <!-- Header -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="group flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold transition">
+                <span class="group-hover:-translate-x-1 transition-transform">&larr;</span>
+                <span>Back to RTECH</span>
             </a>
-            <div class="text-sm font-bold text-slate-400 uppercase tracking-widest">Project: Limemade</div>
+            <div class="px-3 py-1 bg-slate-950 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded">Project: Limemade</div>
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <!-- Title & Status -->
-        <div class="mb-16 border-b border-slate-200 pb-12">
-            <div class="flex items-center gap-4 mb-6">
-                <span class="px-3 py-1 bg-lime-100 text-lime-700 text-xs font-bold uppercase tracking-widest rounded">Status: Development</span>
-                <span class="text-slate-400 text-sm">v1.0.0-Manifesto</span>
-            </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-950 mb-4">
-                OSx2 <span class="text-lime-600 font-medium">Limemade</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-500 font-light">
-                The Sovereign Choice Manifesto
-            </p>
-        </div>
-
-        <!-- Manifesto Content -->
-        <article class="prose prose-slate max-w-none">
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-sm">I</span>
-                    The Vision
-                </h2>
-                <div class="bg-slate-50 border-l-4 border-lime-600 p-8 rounded-r-xl">
-                    <p class="text-lg leading-relaxed text-slate-700">
-                        OSx2 is a 64-bit operating system built from the ground up on one simple truth: <strong>You own the machine.</strong>
-                        Unlike modern operating systems that are bloated with millions of lines of "spyware" and unnecessary complexity,
-                        OSx2 is a "Sovereign" environment. It is lightweight, "Boringly Stable," and gives you total control over every transistor in your computer.
-                    </p>
+    <main class="relative bg-grid min-h-screen">
+        <div class="max-w-4xl mx-auto px-6 py-20">
+            <!-- Hero Title -->
+            <div class="text-center mb-24">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-lime-500 text-white text-xs font-black uppercase tracking-widest mb-6 shadow-lg shadow-lime-500/30">
+                    The Sovereign Choice
                 </div>
-            </section>
-
-            <!-- Pillars -->
-            <section class="mb-16">
-                <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-sm">II</span>
-                    The Three Sovereign Pillars
-                </h2>
-
-                <div class="grid md:grid-cols-1 gap-6">
-                    <div class="p-6 border border-slate-200 rounded-xl hover:border-lime-600 transition">
-                        <h3 class="text-lg font-bold text-slate-950 mb-2">1. Smart Power (The 1-per-6 Rule)</h3>
-                        <p class="text-slate-600 leading-relaxed">
-                            OSx2 respects your hardware by using a 1-core-per-6-tasks ratio. As you open more apps, OSx2 "ignites" more power.
-                            When you close them, the hardware goes back to sleep, saving energy and maintaining optimal temperatures.
-                        </p>
-                    </div>
-
-                    <div class="p-6 border border-slate-200 rounded-xl hover:border-lime-600 transition">
-                        <h3 class="text-lg font-bold text-slate-950 mb-2">2. The Clean-Sweep Safety (SAFE_load_Task)</h3>
-                        <p class="text-slate-600 leading-relaxed">
-                            Every app runs in a isolated "Safe Chamber". If an app breaks a rule or crashes, OSx2 terminates it instantly.
-                            Upon closure, OSx2 "scrubs" the RAM, sanitizing every bit of memory and returning it to the system.
-                        </p>
-                    </div>
-
-                    <div class="p-6 border border-slate-200 rounded-xl hover:border-lime-600 transition">
-                        <h3 class="text-lg font-bold text-slate-950 mb-2">3. RTECH Standard (The Language of People)</h3>
-                        <p class="text-slate-600 leading-relaxed">
-                            Utilizing RSL (RTECH Standard Language), OSx2 offers a simplistic, one-line-at-a-time syntax.
-                            Configuration is handled via direct orders rather than complex menus, providing accessibility without sacrificing power.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- License -->
-            <section class="mb-16 bg-slate-950 text-white p-10 rounded-2xl">
-                <h2 class="text-2xl font-bold text-white mb-6">🛡️ The Sovereign License</h2>
-                <div class="space-y-6 text-slate-300">
-                    <div>
-                        <h4 class="text-lime-400 font-bold uppercase text-xs tracking-widest mb-1">Privacy Protocol</h4>
-                        <p><strong>Your Data:</strong> We don't want it. We don't track it. We don't see it.</p>
-                    </div>
-                    <div>
-                        <h4 class="text-lime-400 font-bold uppercase text-xs tracking-widest mb-1">Hardware Rights</h4>
-                        <p><strong>Your Hardware:</strong> You have the right to "Aggressively Decorate" (modify) your system. We provide the tools; you provide the vision.</p>
-                    </div>
-                    <p class="text-sm border-t border-slate-800 pt-6 italic">An OS that feels like a well-oiled machine, not a corporate billboard.</p>
-                </div>
-            </section>
-
-            <!-- Comparison Table -->
-            <section class="mb-16">
-                <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-sm">III</span>
-                    Comparative Analysis
-                </h2>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-slate-200 border border-slate-200">
-                        <thead class="bg-slate-50">
-                            <tr>
-                                <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Feature</th>
-                                <th class="px-6 py-4 text-left text-xs font-bold text-lime-700 uppercase tracking-widest">OSx2 Limemade</th>
-                                <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">"The Big OS"</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-200">
-                            <tr>
-                                <td class="px-6 py-4 font-semibold text-slate-900">Performance</td>
-                                <td class="px-6 py-4 text-slate-600">1000Hz Heartbeat Response</td>
-                                <td class="px-6 py-4 text-slate-400 italic">Suboptimal/Bloated</td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 font-semibold text-slate-900">Privacy</td>
-                                <td class="px-6 py-4 text-slate-600">Total Sovereignty</td>
-                                <td class="px-6 py-4 text-slate-400 italic">Constant Telemetry</td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 font-semibold text-slate-900">Stability</td>
-                                <td class="px-6 py-4 text-slate-600">Boringly Stable</td>
-                                <td class="px-6 py-4 text-slate-400 italic">High Failure Rates</td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 font-semibold text-slate-900">Interface</td>
-                                <td class="px-6 py-4 text-slate-600">Simplistic RSL</td>
-                                <td class="px-6 py-4 text-slate-400 italic">Nested Menus</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Roadmap/CTA -->
-            <div class="bg-lime-600 p-12 rounded-3xl text-center text-white">
-                <h2 class="text-3xl font-bold mb-4">Coming Q4 2024</h2>
-                <p class="text-lime-100 mb-8 max-w-lg mx-auto leading-relaxed">
-                    OSx2 is the "Limemade" experience: sharp, refreshing, and exactly what you need. Prepare to reclaim your machine.
+                <h1 class="text-6xl md:text-8xl font-black tracking-tighter text-slate-950 mb-8">
+                    OSx2 <span class="text-lime-500">Limemade</span>
+                </h1>
+                <p class="text-2xl text-slate-500 font-medium max-w-2xl mx-auto">
+                    A New Era of Personal Computing. <br/>
+                    <span class="text-slate-900 underline decoration-lime-500 decoration-4 underline-offset-8">Simpler. Faster. Yours.</span>
                 </p>
-                <a href="index.html" class="inline-block px-8 py-3 bg-white text-lime-700 font-bold rounded-lg hover:bg-slate-100 transition shadow-lg">
-                    Return to Homepage
-                </a>
             </div>
-        </article>
+
+            <!-- Manifesto Sections -->
+            <div class="space-y-12">
+                <!-- What is OSx2 -->
+                <section class="bg-white p-10 md:p-16 rounded-[3rem] border border-slate-200 shadow-xl lime-glow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-8 text-8xl opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">🍋</div>
+                    <h2 class="text-3xl font-black mb-8 flex items-center gap-4">
+                        <span class="w-12 h-12 bg-lime-500 rounded-2xl flex items-center justify-center text-white text-xl">?</span>
+                        What is OSx2?
+                    </h2>
+                    <p class="text-xl leading-relaxed text-slate-600">
+                        OSx2 is a 64-bit operating system built from the ground up on one simple truth: <strong class="text-slate-950">You own the machine.</strong>
+                        Unlike modern operating systems that are bloated with millions of lines of "spyware" and unnecessary complexity,
+                        OSx2 is a <span class="bg-lime-100 px-2 rounded">"Sovereign" environment</span>. It is lightweight, "Boringly Stable," and gives you total control over every transistor in your computer.
+                    </p>
+                </section>
+
+                <!-- The Pillars -->
+                <div class="grid md:grid-cols-1 gap-8">
+                    <h2 class="text-4xl font-black text-slate-950 px-6 pt-12">🏛️ The Three Sovereign Pillars</h2>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-slate-950 text-white p-8 rounded-[2.5rem] shadow-2xl hover:-translate-y-2 transition-transform">
+                            <div class="text-lime-400 text-sm font-black uppercase tracking-widest mb-4">Pillar 01</div>
+                            <h3 class="text-xl font-extrabold mb-4">Smart Power</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                (The 1-per-6 Rule) <br/><br/>
+                                Uses a 1-core-per-6-tasks ratio. Hardware "ignites" only when needed and sleeps the rest of the time.
+                            </p>
+                        </div>
+
+                        <div class="bg-white border border-slate-200 p-8 rounded-[2.5rem] shadow-xl hover:-translate-y-2 transition-transform">
+                            <div class="text-lime-600 text-sm font-black uppercase tracking-widest mb-4">Pillar 02</div>
+                            <h3 class="text-xl font-extrabold mb-4">Clean-Sweep</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">
+                                (SAFE_load_Task) <br/><br/>
+                                Apps live in "Safe Chambers". Instant kill on crash and immediate RAM "scrubbing" to zero-out data.
+                            </p>
+                        </div>
+
+                        <div class="bg-lime-500 text-white p-8 rounded-[2.5rem] shadow-2xl hover:-translate-y-2 transition-transform">
+                            <div class="text-white/60 text-sm font-black uppercase tracking-widest mb-4">Pillar 03</div>
+                            <h3 class="text-xl font-extrabold mb-4">RTECH Standard</h3>
+                            <p class="text-white/80 text-sm leading-relaxed">
+                                (The Human Lang) <br/><br/>
+                                No PhD required. RSL is a simplistic, one-line-at-a-time language. Talk to your computer like a human.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- License -->
+                <section class="bg-white p-12 rounded-[3rem] border-2 border-slate-900 shadow-2xl relative">
+                    <div class="absolute -top-6 -right-6 w-16 h-16 bg-lime-500 rounded-full flex items-center justify-center text-3xl animate-bounce">🛡️</div>
+                    <h2 class="text-3xl font-black mb-8">The Sovereign License</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="text-4xl">🔒</div>
+                            <div>
+                                <h4 class="font-black text-lg mb-1">Your Data</h4>
+                                <p class="text-slate-600">We don't want it. We don't track it. We don't see it. Period.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="text-4xl">🎨</div>
+                            <div>
+                                <h4 class="font-black text-lg mb-1">Your Hardware</h4>
+                                <p class="text-slate-600">You have the right to "Aggressively Decorate" (modify) your system. We provide the tools; you provide the vision.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Comparison -->
+                <section class="py-20">
+                    <h2 class="text-4xl font-black text-center mb-16">Why choose the Limemade experience?</h2>
+                    <div class="bg-white rounded-[3rem] border border-slate-200 overflow-hidden shadow-xl">
+                        <table class="w-full text-left">
+                            <thead class="bg-slate-50 border-b border-slate-100">
+                                <tr>
+                                    <th class="p-8 font-black uppercase tracking-widest text-xs text-slate-400">Feature</th>
+                                    <th class="p-8 font-black uppercase tracking-widest text-xs text-lime-600">OSx2 Limemade</th>
+                                    <th class="p-8 font-black uppercase tracking-widest text-xs text-slate-400">"The Big OS"</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="hover:bg-lime-50/50 transition-colors">
+                                    <td class="p-8 font-bold">Speed</td>
+                                    <td class="p-8 font-extrabold text-slate-950">1000Hz Heartbeat</td>
+                                    <td class="p-8 text-slate-400">Bloated/Laggy</td>
+                                </tr>
+                                <tr class="hover:bg-lime-50/50 transition-colors">
+                                    <td class="p-8 font-bold">Privacy</td>
+                                    <td class="p-8 font-extrabold text-slate-950">Total Sovereignty</td>
+                                    <td class="p-8 text-slate-400">Constant "Telemetry"</td>
+                                </tr>
+                                <tr class="hover:bg-lime-50/50 transition-colors">
+                                    <td class="p-8 font-bold">Stability</td>
+                                    <td class="p-8 font-extrabold text-slate-950">Boringly Stable</td>
+                                    <td class="p-8 text-slate-400">Blue Screens</td>
+                                </tr>
+                                <tr class="hover:bg-lime-50/50 transition-colors">
+                                    <td class="p-8 font-bold">Learning</td>
+                                    <td class="p-8 font-extrabold text-slate-950">Simplistic RSL</td>
+                                    <td class="p-8 text-slate-400">Endless Menus</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- CTA -->
+                <section class="text-center py-20">
+                    <h2 class="text-5xl font-black tracking-tighter mb-8">Prepare to reclaim your machine.</h2>
+                    <p class="text-slate-500 mb-12 text-lg max-w-xl mx-auto">
+                        OSx2 is the "Limemade" experience: sharp, refreshing, and exactly what you need.
+                    </p>
+                    <div class="inline-flex flex-col md:flex-row items-center gap-6">
+                        <div class="px-10 py-5 bg-lime-500 text-white font-black text-xl rounded-full shadow-2xl shadow-lime-500/40 animate-pulse">
+                            Coming Q4 2024
+                        </div>
+                        <a href="index.html" class="font-bold text-slate-400 hover:text-slate-950 transition">Back to Home</a>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
 
-    <footer class="py-12 px-6 border-t border-slate-100 text-center text-slate-400 text-sm">
-        &copy; 2024 RTECH-technologies Research & Development division. All rights reserved.
+    <footer class="py-12 border-t border-slate-100 text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">
+        RTECH-technologies Research & Development Division
     </footer>
 </body>
 </html>
