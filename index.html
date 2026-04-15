@@ -3,39 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTECH-technologies</title>
+    <title>RTECH-technologies | Innovation with Zest</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+    </style>
 </head>
-<body class="bg-gray-950 text-white font-sans selection:bg-lime-500 selection:text-black">
-    <div class="fixed inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-gray-950 to-gray-950 -z-10"></div>
-
-    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
-        <div class="text-2xl font-bold tracking-tighter text-white">RTECH-technologies</div>
-        <div>
-            <a href="os2.html" class="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-lg transition font-medium">OSx2 Limemade</a>
+<body class="bg-slate-50 text-slate-900 selection:bg-lime-300">
+    <!-- Navigation -->
+    <nav class="glass border-b border-slate-200/50 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center group cursor-pointer">
+                    <div class="w-10 h-10 bg-lime-500 rounded-xl flex items-center justify-center text-white font-black text-xl mr-3 shadow-lg shadow-lime-500/20 group-hover:rotate-12 transition-transform">R</div>
+                    <span class="text-2xl font-extrabold tracking-tight text-slate-900">RTECH<span class="text-lime-500">.</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#" class="text-slate-600 hover:text-slate-900 px-3 py-2 text-sm font-semibold transition">Solutions</a>
+                    <a href="#about" class="text-slate-600 hover:text-slate-900 px-3 py-2 text-sm font-semibold transition">Philosophy</a>
+                    <a href="os2.html" class="bg-slate-900 text-white hover:bg-slate-800 px-6 py-2.5 rounded-full text-sm font-bold transition shadow-xl shadow-slate-900/10">OSx2 Limemade</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <main class="flex flex-col items-center justify-center min-h-[80vh] text-center px-4">
-        <div class="inline-block mb-6 px-4 py-1.5 border border-blue-500/30 rounded-full bg-blue-500/5 text-blue-400 text-sm font-bold tracking-widest uppercase">
-            Engineering Sovereignty
+    <!-- Hero Section -->
+    <header class="relative pt-16 pb-32 overflow-hidden">
+        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-lime-200/30 rounded-full blur-3xl -z-10 animate-pulse"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:flex items-center gap-16">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 text-lime-700 text-xs font-bold uppercase tracking-widest mb-8 border border-lime-200">
+                        ✨ Fresh Tech Thinking
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
+                        Serious Tech. <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-500 to-emerald-600">Pure Joy.</span>
+                    </h1>
+                    <p class="text-xl text-slate-500 mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        RTECH-technologies builds the tools you actually want to use. We’ve stripped away the corporate bloat to give you back the speed, power, and sovereignty you deserve.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="os2.html" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white bg-slate-900 rounded-2xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-lime-500/20 active:scale-95">
+                            <span class="relative z-10">Read the Manifesto</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-lime-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </a>
+                        <a href="#about" class="inline-flex items-center justify-center px-8 py-4 font-bold text-slate-700 bg-white border-2 border-slate-100 rounded-2xl hover:bg-slate-50 hover:border-slate-200 transition-all active:scale-95">
+                            Meet RTECH
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden lg:block lg:w-1/2">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-lime-500/10 rounded-[2rem] blur-2xl"></div>
+                        <div class="relative bg-white border border-slate-200 rounded-[2rem] p-12 shadow-2xl animate-float">
+                            <div class="flex gap-4 mb-8">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-lime-400"></div>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="h-4 bg-slate-100 rounded-full w-3/4"></div>
+                                <div class="h-4 bg-slate-100 rounded-full w-full"></div>
+                                <div class="h-4 bg-lime-500/20 rounded-full w-5/6"></div>
+                                <div class="h-24 bg-slate-50 rounded-2xl w-full flex items-center justify-center text-slate-300 font-bold">
+                                    [SOVEREIGN_ENGINE_LOADED]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tighter text-white">
-            Innovating the <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-lime-400">Future</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl leading-relaxed">
-            RTECH-technologies is dedicated to pushing the boundaries of technology.
-            From cloud solutions to the sovereign OSx2 Limemade experience.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-            <a href="os2.html" class="inline-block bg-white text-gray-950 px-10 py-4 rounded-full text-lg font-black hover:bg-lime-500 transition duration-300 uppercase tracking-tighter">
-                Discover OSx2
-            </a>
-        </div>
-    </main>
+    </header>
 
-    <footer class="p-10 border-t border-gray-900 text-center text-gray-600">
-        &copy; 2024 RTECH-technologies. All rights reserved.
+    <!-- Values Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-lime-500 font-black uppercase tracking-[0.2em] text-sm mb-4">The Philosophy</h2>
+                <p class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+                    Corporate values, minus the boredom.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group p-10 rounded-[2rem] bg-slate-50 hover:bg-lime-500 transition-all duration-500 cursor-default">
+                    <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">👑</div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Sovereignty</h3>
+                    <p class="text-slate-500 leading-relaxed group-hover:text-lime-50 transition-colors">
+                        Your computer, your rules. We provide the platform; you provide the command. No spying, no bloat, just power.
+                    </p>
+                </div>
+
+                <div class="group p-10 rounded-[2rem] bg-slate-50 hover:bg-lime-500 transition-all duration-500 cursor-default">
+                    <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">⚡</div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Performance</h3>
+                    <p class="text-slate-500 leading-relaxed group-hover:text-lime-50 transition-colors">
+                        Efficiency isn't just a metric; it's a respect for your time. Every cycle is optimized for your productivity.
+                    </p>
+                </div>
+
+                <div class="group p-10 rounded-[2rem] bg-slate-50 hover:bg-lime-500 transition-all duration-500 cursor-default">
+                    <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">🍋</div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">The Zest</h3>
+                    <p class="text-slate-500 leading-relaxed group-hover:text-lime-50 transition-colors">
+                        Why should tech be grey and dull? We bring the "Limemade" freshness to everything we build.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 py-20 px-4 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-center md:text-left">
+                <div class="text-2xl font-black text-slate-900 mb-4">RTECH<span class="text-lime-500">.</span></div>
+                <p class="text-slate-400 max-w-xs">Building the future of sovereign computing with a bit of zest.</p>
+            </div>
+            <div class="flex gap-12">
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Product</h4>
+                    <ul class="text-slate-500 space-y-2">
+                        <li><a href="os2.html" class="hover:text-lime-500 transition">OSx2 Limemade</a></li>
+                        <li><a href="#" class="hover:text-lime-500 transition">RSL Standard</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Company</h4>
+                    <ul class="text-slate-500 space-y-2">
+                        <li><a href="#" class="hover:text-lime-500 transition">About</a></li>
+                        <li><a href="#" class="hover:text-lime-500 transition">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-slate-200 text-center text-slate-400 text-sm">
+            &copy; 2024 RTECH-technologies. All rights reserved.
+        </div>
     </footer>
 </body>
 </html>
