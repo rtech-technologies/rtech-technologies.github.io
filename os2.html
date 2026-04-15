@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Manifesto | OSx2 Limemade</title>
+    <title>The Manifesto | OS*2 coming soon!!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
@@ -21,6 +21,46 @@
             color: #94a3b8;
             font-weight: bold;
         }
+        .terminal-preview {
+            background: #000;
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        .terminal-text { color: #00ff00; }
+        .ascii-logo {
+            font-size: 10px;
+            line-height: 1;
+            color: #00ff00;
+            white-space: pre;
+        }
+        .sovereign-window {
+            position: absolute;
+            top: 15%;
+            left: 5%;
+            width: 40%;
+            height: 60%;
+            background: #fff;
+            border: 2px solid #000;
+        }
+        .window-header {
+            background: #0000aa;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .terminal-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            display: flex;
+        }
+        .footer-block { height: 100%; flex-grow: 1; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 selection:bg-lime-300 selection:text-lime-900">
@@ -43,7 +83,7 @@
                     The Sovereign Choice
                 </div>
                 <h1 class="text-6xl md:text-8xl font-black tracking-tighter text-slate-950 mb-8">
-                    OSx2 <span class="text-lime-500">Limemade</span>
+                    OS*2 <span class="text-lime-500">coming soon!!</span>
                 </h1>
                 <p class="text-2xl text-slate-500 font-medium max-w-2xl mx-auto">
                     A New Era of Personal Computing. <br/>
@@ -51,14 +91,53 @@
                 </p>
 
                 <!-- Image Placeholder for Product -->
-                <div class="mt-16 w-full h-64 placeholder-image rounded-[3rem]">
-                    [Product Interface Screenshot Placeholder]
+                <div class="mt-16 w-full h-[450px] terminal-preview rounded-[2rem] shadow-2xl p-6 text-left relative">
+                    <div class="terminal-text text-xs space-y-1 mb-4 opacity-80">
+                        <div>[USB] Sovereign_Task Active.</div>
+                        <div>[USB] Keyboard_Task Active.</div>
+                        <div>[USB] Mouse_Task Active.</div>
+                        <div class="text-lime-400 mt-2">[UNIX] Sovereign OS*2 spawned in Slab 3</div>
+                    </div>
+
+                    <div class="ascii-logo flex justify-center mt-12 opacity-40">
+<pre>
+  ____   _____      ___
+ / __ \ / ____|    |__ \
+| |  | | (___  __  __ ) |
+| |  | |\___ \ \ \/ // /
+| |__| |____) | >  <| |__
+ \____/|_____/ /_/\_\____|
+</pre>
+                    </div>
+
+                    <div class="sovereign-window shadow-xl">
+                        <div class="window-header">
+                            <span>Sovereign Text Editor</span>
+                            <span class="bg-white/20 px-1">SAVE</span>
+                        </div>
+                        <div class="p-2">
+                            <div class="w-12 h-1 bg-black animate-pulse"></div>
+                        </div>
+                    </div>
+
+                    <div class="absolute top-4 right-6 text-lime-500 font-bold text-xs">Slab: 3</div>
+
+                    <div class="terminal-footer">
+                        <div class="footer-block bg-purple-600"></div>
+                        <div class="footer-block bg-green-600"></div>
+                        <div class="footer-block bg-orange-600"></div>
+                        <div class="footer-block bg-cyan-600"></div>
+                        <div class="footer-block bg-purple-600"></div>
+                        <div class="footer-block bg-green-600"></div>
+                        <div class="footer-block bg-orange-600"></div>
+                        <div class="footer-block bg-cyan-600"></div>
+                    </div>
                 </div>
             </div>
 
             <!-- Manifesto Sections -->
             <div class="space-y-12">
-                <!-- What is OSx2 -->
+                <!-- What is OS*2 -->
                 <section class="bg-white p-10 md:p-16 rounded-[3rem] border border-slate-200 shadow-xl lime-glow relative overflow-hidden group">
                     <div class="absolute top-0 right-0 p-8 text-slate-100 group-hover:text-lime-50 transition-colors">
                         <i data-lucide="help-circle" class="w-24 h-24"></i>
@@ -67,12 +146,12 @@
                         <span class="w-12 h-12 bg-lime-500 rounded-2xl flex items-center justify-center text-white text-xl">
                             <i data-lucide="help-circle" class="w-6 h-6"></i>
                         </span>
-                        What is OSx2?
+                        What is OS*2?
                     </h2>
                     <p class="text-xl leading-relaxed text-slate-600">
-                        OSx2 is a 64-bit operating system built from the ground up on one simple truth: <strong class="text-slate-950">You own the machine.</strong>
+                        OS*2 is a 64-bit operating system built from the ground up on one simple truth: <strong class="text-slate-950">You own the machine.</strong>
                         Unlike modern operating systems that are bloated with millions of lines of "spyware" and unnecessary complexity,
-                        OSx2 is a <span class="bg-lime-100 px-2 rounded">"Sovereign" environment</span>. It is lightweight, "Boringly Stable," and gives you total control over every transistor in your computer.
+                        OS*2 is a <span class="bg-lime-100 px-2 rounded">"Sovereign" environment</span>. It is lightweight, "Boringly Stable," and gives you total control over every transistor in your computer.
                     </p>
                 </section>
 
@@ -148,7 +227,7 @@
                             <thead class="bg-slate-50 border-b border-slate-100">
                                 <tr>
                                     <th class="p-8 font-black uppercase tracking-widest text-xs text-slate-400">Feature</th>
-                                    <th class="p-8 font-black uppercase tracking-widest text-xs text-lime-600">OSx2 Limemade</th>
+                                    <th class="p-8 font-black uppercase tracking-widest text-xs text-lime-600">OS*2 (Coming Soon)</th>
                                     <th class="p-8 font-black uppercase tracking-widest text-xs text-slate-400">"The Big OS"</th>
                                 </tr>
                             </thead>
@@ -182,7 +261,7 @@
                 <section class="text-center py-20 bg-slate-900 rounded-[3rem] p-12 text-white">
                     <h2 class="text-5xl font-black tracking-tighter mb-8">Prepare to reclaim your machine.</h2>
                     <p class="text-slate-400 mb-12 text-lg max-w-xl mx-auto">
-                        OSx2 is the "Limemade" experience: sharp, refreshing, and exactly what you need.
+                        OS*2 is the "Limemade" experience: sharp, refreshing, and exactly what you need.
                     </p>
                     <div class="flex flex-col items-center gap-6">
                         <div class="inline-flex flex-col md:flex-row items-center gap-6">
@@ -191,7 +270,7 @@
                             </div>
                             <a href="#" class="px-10 py-5 bg-white text-slate-900 font-black text-xl rounded-full shadow-xl hover:bg-slate-100 transition flex items-center gap-3">
                                 <i data-lucide="download" class="w-6 h-6"></i>
-                                Download OSx2 ISO
+                                Download OS*2 ISO (Coming Soon)
                             </a>
                         </div>
                         <a href="index.html" class="font-bold text-slate-500 hover:text-white transition">Back to Home</a>
