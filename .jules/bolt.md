@@ -1,0 +1,3 @@
+## 2026-04-16 - [Resource Loading & Animation Optimization]
+**Learning:** For static sites using CDNs (Tailwind) and Google Fonts, preconnecting to the font and CDN origins can significantly reduce the time to first meaningful paint. Additionally, using variable font ranges (e.g., 400..900) instead of discrete weights can be more efficient and simpler to maintain, especially when multiple weights are used across the site. Using `will-change` for constant animations (pulse, float) helps the browser optimize rendering by promoting elements to compositor layers.
+**Action:** Always check for opportunities to use `preconnect` for critical external resources and `will-change` for prominent animations.
