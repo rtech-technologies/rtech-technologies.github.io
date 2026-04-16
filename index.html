@@ -3,113 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTECH-technologies | Innovation with Zest</title>
+    <title>RTECH-technologies | Terminal Sovereignty</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #050505;
+            color: #d1d5db;
         }
-        .animate-float { animation: float 3s ease-in-out infinite; }
-        .placeholder-image {
-            background: linear-gradient(45deg, #f1f5f9 25%, #f8fafc 25%, #f8fafc 50%, #f1f5f9 50%, #f1f5f9 75%, #f8fafc 75%, #f8fafc 100%);
-            background-size: 40px 40px;
-            border: 2px dashed #cbd5e1;
+        .heading-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .terminal-glow {
+            text-shadow: 0 0 10px rgba(132, 204, 22, 0.5);
+        }
+        .border-terminal {
+            border: 1px solid #1f2937;
+        }
+        .bg-terminal {
+            background-color: #0a0a0a;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(132, 204, 22, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            pointer-events: none;
+            animation: scan 6s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .crt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 70%, rgba(0,0,0,0.3) 100%);
+            pointer-events: none;
+            z-index: 99;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 selection:bg-lime-300">
+<body class="selection:bg-lime-500 selection:text-black">
+    <div class="scanline"></div>
+    <div class="crt-overlay"></div>
+
     <!-- Navigation -->
-    <nav class="glass border-b border-slate-200/50 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center group cursor-pointer">
-                    <div class="w-10 h-10 bg-lime-500 rounded-xl flex items-center justify-center text-white font-black text-xl mr-3 shadow-lg shadow-lime-500/20 group-hover:rotate-12 transition-transform">R</div>
-                    <span class="text-2xl font-extrabold tracking-tight text-slate-900">RTECH<span class="text-lime-500">.</span></span>
+    <nav class="border-b border-white/5 bg-black/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-lime-500 flex items-center justify-center text-black font-black text-lg">R</div>
+                    <span class="text-xl font-bold tracking-tighter text-white heading-font">RTECH<span class="text-lime-500">_</span></span>
                 </div>
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="#" class="text-slate-600 hover:text-slate-900 px-3 py-2 text-sm font-semibold transition">Solutions</a>
-                    <a href="#about" class="text-slate-600 hover:text-slate-900 px-3 py-2 text-sm font-semibold transition">Philosophy</a>
-                    <a href="os2.html" class="bg-slate-900 text-white hover:bg-slate-800 px-6 py-2.5 rounded-full text-sm font-bold transition shadow-xl shadow-slate-900/10">OS*2 Coming Soon</a>
+                <div class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest">
+                    <a href="#" class="text-gray-500 hover:text-lime-500 transition">/solutions</a>
+                    <a href="#about" class="text-gray-500 hover:text-lime-500 transition">/philosophy</a>
+                    <a href="os2.html" class="px-4 py-2 border border-lime-500/50 text-lime-500 hover:bg-lime-500 hover:text-black transition">OS*2_EXPLORE</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative pt-16 pb-32 overflow-hidden">
-        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-lime-200/30 rounded-full blur-3xl -z-10 animate-pulse"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:flex items-center gap-16">
-                <div class="lg:w-1/2 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 text-lime-700 text-xs font-bold uppercase tracking-widest mb-8 border border-lime-200">
-                        <i data-lucide="sparkles" class="w-3 h-3"></i> Fresh Tech Thinking
+    <!-- Hero -->
+    <header class="relative pt-20 pb-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="lg:flex items-center gap-20">
+                <div class="lg:w-3/5">
+                    <div class="inline-flex items-center gap-2 text-lime-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-6">
+                        <i data-lucide="terminal" class="w-3 h-3"></i> SYSTEM_INITIALIZED // 2026
                     </div>
-                    <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
-                        Serious Tech. <br/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-500 to-emerald-600">Pure Joy.</span>
+                    <h1 class="text-5xl md:text-8xl font-black text-white leading-none mb-8 tracking-tighter heading-font">
+                        THE WORLD IS A <br/>
+                        <span class="text-lime-500 terminal-glow">TERMINAL.</span>
                     </h1>
-                    <div class="inline-block px-4 py-1 bg-slate-900 text-white text-xs font-black uppercase tracking-widest rounded mb-4">
-                        OS*2 coming soon!!
+                    <div class="inline-block px-4 py-1 bg-lime-500 text-black text-[10px] font-black uppercase tracking-widest mb-8">
+                        OS*2 RELEASING TOMORROW // JAN_2026
                     </div>
-                    <p class="text-xl text-slate-500 mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                        RTECH-technologies builds the tools you actually want to use. We’ve stripped away the corporate bloat to give you back the speed, power, and sovereignty you deserve.
+                    <p class="text-lg text-gray-400 mb-10 max-w-xl leading-relaxed">
+                        RTECH-technologies presents the sovereign interface. In 2026, we stopped clicking and started commanding. OS*2 is the terminal-first operating system that gave the power back to the user.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="os2.html" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white bg-slate-900 rounded-2xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-lime-500/20 active:scale-95">
-                            <span class="relative z-10">Read the Manifesto</span>
-                            <div class="absolute inset-0 bg-gradient-to-r from-lime-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </a>
-                        <a href="#about" class="inline-flex items-center justify-center px-8 py-4 font-bold text-slate-700 bg-white border-2 border-slate-100 rounded-2xl hover:bg-slate-50 hover:border-slate-200 transition-all active:scale-95">
-                            Meet RTECH
-                        </a>
+                    <div class="flex flex-col gap-6">
+                        <div class="flex flex-wrap gap-4">
+                            <a href="os2.html" class="px-8 py-4 bg-lime-500 text-black font-black uppercase text-sm hover:bg-lime-400 transition flex items-center gap-3">
+                                <i data-lucide="cpu" class="w-4 h-4"></i> Access Manifesto
+                            </a>
+                            <button disabled class="px-8 py-4 bg-gray-800 text-gray-500 font-black uppercase text-sm cursor-not-allowed flex items-center gap-3 border border-white/5">
+                                <i data-lucide="lock" class="w-4 h-4"></i> Download ISO
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs font-mono text-gray-500">
+                            <i data-lucide="info" class="w-4 h-4 text-lime-500"></i>
+                            <span>Hardware Constraint: SATA Storage & PS/2 Keyboard Required.</span>
+                        </div>
                     </div>
                 </div>
-                <div class="hidden lg:block lg:w-1/2">
-                    <div class="relative">
-                        <div class="absolute -inset-4 bg-lime-500/10 rounded-[2rem] blur-2xl"></div>
-                        <!-- Terminal Style Preview -->
-                        <div class="relative bg-black border border-slate-800 rounded-[2rem] overflow-hidden shadow-2xl animate-float p-8 aspect-square flex flex-col justify-between">
-                            <div class="font-mono text-[10px] text-lime-500/80 space-y-1">
-                                <div>[USB] Sovereign_Task Active.</div>
-                                <div>[USB] Keyboard_Task Active.</div>
-                                <div>[USB] Mouse_Task Active.</div>
-                                <div class="text-white mt-4">[UNIX] Sovereign OS*2 spawned in Slab 3</div>
-                            </div>
 
-                            <div class="font-mono text-[8px] text-lime-500 opacity-30 leading-none whitespace-pre self-center">
-  ____   _____      ___
- / __ \ / ____|    |__ \
-| |  | | (___  __  __ ) |
-| |  | |\___ \ \ \/ // /
-| |__| |____) | >  <| |__
- \____/|_____/ /_/\_\____|
+                <div class="hidden lg:block lg:w-2/5">
+                    <div class="bg-terminal border-terminal p-1 shadow-2xl">
+                        <div class="bg-gray-900 px-4 py-2 flex items-center justify-between border-b border-terminal">
+                            <div class="flex gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
                             </div>
-
-                            <div class="bg-blue-800 border-2 border-black w-3/4 h-1/2 self-start mt-4 shadow-2xl relative overflow-hidden">
-                                <div class="bg-blue-900 px-2 py-1 flex justify-between items-center text-[8px] text-white font-mono">
-                                    <span>Sovereign Text Editor</span>
-                                    <span class="bg-white text-black px-1">SAVE</span>
+                            <span class="text-[9px] text-gray-500 font-bold uppercase">rtech_kernel_v4.2.0</span>
+                        </div>
+                        <div class="p-6 text-[11px] space-y-2 leading-relaxed">
+                            <div class="text-lime-500">rtech@sovereign:~$ neofetch</div>
+                            <div class="flex gap-6">
+                                <div class="text-lime-500 opacity-50 whitespace-pre">
+   ____
+  / __ \
+ | |  | |
+ | |  | |
+ | |__| |
+  \____/
                                 </div>
-                                <div class="p-4">
-                                    <div class="w-8 h-0.5 bg-white animate-pulse"></div>
+                                <div class="space-y-1">
+                                    <div><span class="text-lime-500 font-bold">OS:</span> OS*2 Limemade Edition</div>
+                                    <div><span class="text-lime-500 font-bold">Release:</span> Jan 2026 (Tomorrow)</div>
+                                    <div><span class="text-lime-500 font-bold">Kernel:</span> Sovereign-LTS</div>
+                                    <div><span class="text-lime-500 font-bold">Uptime:</span> 100% (Sovereign)</div>
+                                    <div><span class="text-lime-500 font-bold">Shell:</span> RSL (RTECH Shell)</div>
                                 </div>
                             </div>
-
-                            <div class="absolute bottom-0 left-0 right-0 h-4 flex">
-                                <div class="flex-1 bg-purple-600"></div>
-                                <div class="flex-1 bg-green-600"></div>
-                                <div class="flex-1 bg-orange-600"></div>
-                                <div class="flex-1 bg-cyan-600"></div>
-                                <div class="flex-1 bg-purple-600"></div>
-                                <div class="flex-1 bg-green-600"></div>
-                                <div class="flex-1 bg-orange-600"></div>
-                                <div class="flex-1 bg-cyan-600"></div>
+                            <div class="pt-4 text-gray-500 italic">// All systems operational.</div>
+                            <div class="flex gap-1">
+                                <div class="bg-lime-500 w-2 h-4 animate-pulse"></div>
                             </div>
                         </div>
                     </div>
@@ -118,92 +146,74 @@
         </div>
     </header>
 
-    <!-- Values Section -->
-    <section id="about" class="py-24 bg-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-20">
-                <h2 class="text-lime-500 font-black uppercase tracking-[0.2em] text-sm mb-4">The Philosophy</h2>
-                <p class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-                    Corporate values, minus the boredom.
-                </p>
+    <!-- Values -->
+    <section id="about" class="py-24 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-20">
+                <h2 class="text-lime-500 text-xs font-bold uppercase tracking-[0.5em] mb-4">/root/philosophy</h2>
+                <p class="text-4xl font-black text-white heading-font tracking-tighter">Command your reality.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="group p-10 rounded-[2rem] bg-slate-50 hover:bg-lime-500 transition-all duration-500 cursor-default">
-                    <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-lime-500 mb-8 group-hover:scale-110 transition-transform">
-                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+            <div class="grid md:grid-cols-3 gap-1">
+                <div class="bg-terminal border-terminal p-10 hover:bg-lime-500/5 transition group">
+                    <div class="w-12 h-12 border border-lime-500/30 flex items-center justify-center text-lime-500 mb-8 group-hover:bg-lime-500 group-hover:text-black transition">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Sovereignty</h3>
-                    <p class="text-slate-500 leading-relaxed group-hover:text-lime-50 transition-colors">
-                        Your computer, your rules. We provide the platform; you provide the command. No spying, no bloat, just power.
+                    <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-widest">Sovereignty</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        In 2026, privacy became a default, not a feature. OS*2 ensures your local hardware stays local. No telemetry, no cloud-mandates.
                     </p>
                 </div>
 
-                <div class="group p-10 rounded-[2rem] bg-slate-50 hover:bg-lime-500 transition-all duration-500 cursor-default">
-                    <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-lime-500 mb-8 group-hover:scale-110 transition-transform">
-                        <i data-lucide="zap" class="w-8 h-8"></i>
+                <div class="bg-terminal border-terminal p-10 hover:bg-lime-500/5 transition group">
+                    <div class="w-12 h-12 border border-lime-500/30 flex items-center justify-center text-lime-500 mb-8 group-hover:bg-lime-500 group-hover:text-black transition">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Performance</h3>
-                    <p class="text-slate-500 leading-relaxed group-hover:text-lime-50 transition-colors">
-                        Efficiency isn't just a metric; it's a respect for your time. Every cycle is optimized for your productivity.
+                    <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-widest">Efficiency</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        A terminal-first OS means zero bloat. Every CPU cycle is dedicated to your task. The RSL shell is optimized for light-speed command entry.
                     </p>
                 </div>
 
-                <div class="group p-10 rounded-[2rem] bg-slate-50 hover:bg-lime-500 transition-all duration-500 cursor-default">
-                    <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-lime-500 mb-8 group-hover:scale-110 transition-transform">
-                        <i data-lucide="refresh-cw" class="w-8 h-8"></i>
+                <div class="bg-terminal border-terminal p-10 hover:bg-lime-500/5 transition group">
+                    <div class="w-12 h-12 border border-lime-500/30 flex items-center justify-center text-lime-500 mb-8 group-hover:bg-lime-500 group-hover:text-black transition">
+                        <i data-lucide="hard-drive" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">The Zest</h3>
-                    <p class="text-slate-500 leading-relaxed group-hover:text-lime-50 transition-colors">
-                        Why should tech be grey and dull? We bring the "Limemade" freshness to everything we build.
+                    <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-widest">Reliability</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        The "Boringly Stable" promise. OS*2 has been running since 2026 without a single system-wide crash reported by the Sovereign collective.
                     </p>
-                </div>
-            </div>
-
-            <!-- Team/Image Placeholders Section -->
-            <div class="mt-32 grid md:grid-cols-2 gap-12">
-                <div class="placeholder-image rounded-[2.5rem] h-80 flex items-center justify-center text-slate-400 font-bold italic">
-                    [Future R&D Lab Image Placeholder]
-                </div>
-                <div class="flex flex-col justify-center">
-                    <h3 class="text-3xl font-black mb-6">Built by Humans.</h3>
-                    <p class="text-slate-500 text-lg mb-8">We're a team of engineers who got tired of the status quo. No AI-generated committees here—just pure human ingenuity.</p>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-full placeholder-image"></div>
-                        <div class="w-12 h-12 rounded-full placeholder-image"></div>
-                        <div class="w-12 h-12 rounded-full placeholder-image"></div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-50 py-20 px-4 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="text-center md:text-left">
-                <div class="text-2xl font-black text-slate-900 mb-4">RTECH<span class="text-lime-500">.</span></div>
-                <p class="text-slate-400 max-w-xs">Building the future of sovereign computing with a bit of zest.</p>
+    <footer class="py-20 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+            <div>
+                <div class="text-xl font-bold text-white heading-font mb-4">RTECH<span class="text-lime-500">_</span></div>
+                <p class="text-gray-500 text-[10px] uppercase tracking-widest">Established 2024 // Revolution 2026</p>
             </div>
-            <div class="flex gap-12">
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-4">Product</h4>
-                    <ul class="text-slate-500 space-y-2">
-                        <li><a href="os2.html" class="hover:text-lime-500 transition">OS*2 Coming Soon</a></li>
-                        <li><a href="#" class="hover:text-lime-500 transition">RSL Standard</a></li>
+            <div class="flex gap-16">
+                <div class="space-y-4">
+                    <h4 class="text-[10px] font-black uppercase text-white tracking-widest">Project</h4>
+                    <ul class="text-[10px] text-gray-500 space-y-2 uppercase tracking-widest">
+                        <li><a href="os2.html" class="hover:text-lime-500">/os2_limemade</a></li>
+                        <li><a href="#" class="hover:text-lime-500">/rsl_spec</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-4">Company</h4>
-                    <ul class="text-slate-500 space-y-2">
-                        <li><a href="#" class="hover:text-lime-500 transition">About</a></li>
-                        <li><a href="#" class="hover:text-lime-500 transition">Contact</a></li>
+                <div class="space-y-4">
+                    <h4 class="text-[10px] font-black uppercase text-white tracking-widest">Contact</h4>
+                    <ul class="text-[10px] text-gray-500 space-y-2 uppercase tracking-widest">
+                        <li><a href="#" class="hover:text-lime-500">/dev/null</a></li>
+                        <li><a href="#" class="hover:text-lime-500">/signal</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-slate-200 text-center text-slate-400 text-sm">
-            &copy; 2024 RTECH-technologies. All rights reserved.
+        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 text-center text-gray-600 text-[9px] uppercase tracking-[0.4em]">
+            &copy; 2026 RTECH-technologies. All rights reserved. [SOVEREIGN_ENVIRONMENT_DETECTION_ACTIVE]
         </div>
     </footer>
 
