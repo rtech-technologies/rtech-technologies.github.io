@@ -1,3 +1,3 @@
-## 2026-04-16 - [Resource Loading & Animation Optimization]
-**Learning:** For static sites using CDNs (Tailwind) and Google Fonts, preconnecting to the font and CDN origins can significantly reduce the time to first meaningful paint. Additionally, using variable font ranges (e.g., 400..900) instead of discrete weights can be more efficient and simpler to maintain, especially when multiple weights are used across the site. Using `will-change` for constant animations (pulse, float) helps the browser optimize rendering by promoting elements to compositor layers.
-**Action:** Always check for opportunities to use `preconnect` for critical external resources and `will-change` for prominent animations.
+## 2026-04-17 - Resource Hints and Variable Fonts
+**Learning:** For static sites using third-party CDNs (Google Fonts, Tailwind), `preconnect` hints can shave off significant connection setup time (~20-50ms depending on network). Additionally, using variable font ranges (e.g., `300..900`) instead of discrete weights ensures all used weights are covered (fixing missing `font-black` 900 weight) and allows the browser to optimize font fetching more effectively.
+**Action:** Always check for used font weights that might be missing from the CSS request and add `preconnect` for all critical external assets.
