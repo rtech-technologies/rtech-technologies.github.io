@@ -3,136 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OS*2 | LIMEMADE KERNEL</title>
+    <title>RTECH | Enterprise Deployment Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --lime: #a3e635; }
+        :root { --lime: #a3e635; --slate-950: #020617; }
         * { border-radius: 0 !important; font-family: 'JetBrains Mono', monospace; }
-        body { 
-            background: #000; 
-            color: var(--lime); 
-            line-height: 1.1; 
-            overflow-x: hidden;
-            background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
+        body { background: var(--slate-950); color: #f8fafc; line-height: 1.5; }
         
-        .os2-border { border: 3px solid var(--lime); }
-        .os2-shadow { box-shadow: 12px 12px 0px white; }
+        .enterprise-border { border: 1px solid #334155; }
+        .status-pulse {
+            width: 8px;
+            height: 8px;
+            background-color: var(--lime);
+            display: inline-block;
+            margin-right: 8px;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
         
-        .scanline {
-            width: 100%;
-            height: 2px;
-            background: rgba(163, 230, 53, 0.1);
-            position: fixed;
-            top: 0;
-            z-index: 100;
-            pointer-events: none;
-            animation: scan 4s linear infinite;
+        #download-btn {
+            font-weight: 800;
+            padding: 12px 32px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            font-size: 0.875rem;
         }
 
-        @keyframes scan {
-            0% { top: 0; }
-            100% { top: 100%; }
+        .btn-ready {
+            background: var(--lime);
+            color: #000;
+            cursor: pointer;
+            border: 1px solid var(--lime);
         }
 
-        .btn-press:active {
-            transform: translate(4px, 4px);
-            box-shadow: none;
+        .btn-ready:hover {
+            background: #fff;
+            border-color: #fff;
         }
 
-        .glitch-text:hover {
-            text-shadow: 2px 0 #fff, -2px 0 #f0f;
+        .btn-pending {
+            background: transparent;
+            color: #475569;
+            cursor: not-allowed;
+            border: 1px solid #1e293b;
         }
     </style>
 </head>
-<body class="p-4 md:p-12 selection:bg-white selection:text-black">
-    <div class="scanline"></div>
+<body class="selection:bg-lime-500 selection:text-black">
 
-    <div class="max-w-6xl mx-auto os2-border bg-black p-1 os2-shadow">
-        
-        <div class="bg-lime-500 text-black px-4 py-2 flex justify-between items-center font-black text-xs uppercase tracking-widest">
-            <div class="flex gap-4">
-                <span>[MODE: SOVEREIGN]</span>
-                <span class="hidden md:inline">KERNEL_v2026.04.17</span>
+    <nav class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between h-16 items-center">
+            <div class="flex items-center gap-10">
+                <a href="index.html" class="font-black text-xl tracking-tighter hover:text-lime-500 transition-colors uppercase">RTECH</a>
+                <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                    <span class="text-white">Deployment_Portal</span>
+                </div>
             </div>
-            <div class="flex gap-4">
-                <span class="animate-pulse">● SESSION_ACTIVE</span>
-                <a href="index.html" class="hover:bg-black hover:text-lime-500 px-2 border border-black transition-all">EXIT_TO_ROOT</a>
+            <div class="text-[10px] font-black uppercase px-3 py-1 border border-slate-700">
+                Cycle: 2026.Q2
             </div>
         </div>
+    </nav>
 
-        <div class="p-8 md:p-20">
-            <header class="mb-24">
-                <div class="text-white text-xs font-bold mb-6 tracking-[0.5em] uppercase">Built for the metal</div>
-                <h1 class="text-7xl md:text-[10rem] font-black uppercase leading-[0.8] italic mb-8 glitch-text">
-                    OS*2<br><span class="text-white">ZEST</span>
-                </h1>
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        <section class="mb-20">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="status-pulse"></span>
+                <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-lime-500" id="system-status">Checking System Availability...</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tighter italic uppercase">
+                OS*2 <span class="text-slate-500">Limemade</span>
+            </h1>
+        </section>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 border border-slate-800 p-8 md:p-12 bg-slate-900/10 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-10">
+                        <h2 class="text-2xl font-black uppercase italic">Primary_Kernel_Image</h2>
+                        <span class="text-[10px] font-bold bg-slate-800 px-2 py-1 text-slate-400">BUILD_2026_RC1</span>
+                    </div>
+                    
+                    <div class="space-y-4 mb-12">
+                        <div class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-xs text-slate-500 uppercase font-bold">SHA-256</span>
+                            <span class="text-xs font-mono text-slate-400" id="hash-id">----------------</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-4">
+                    <button id="download-btn" class="btn-pending">
+                        Initializing...
+                    </button>
+                    
+                    <button class="border border-slate-700 text-white px-8 py-3 font-bold text-sm hover:bg-slate-800 transition-all uppercase">
+                        Request_Key
+                    </button>
+                </div>
+            </div>
+
+            <div class="enterprise-border p-8 bg-slate-950">
+                <h3 class="text-xs font-black uppercase text-lime-500 mb-6 tracking-widest">Specifications</h3>
+                <ul class="text-[11px] font-bold uppercase space-y-4 text-slate-400">
+                    <li>CPU: RTECH R1-SERIES</li>
+                    <li>PROPERTY: USER_OWNED</li>
+                    <li>YEAR: 2026</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        /**
+         * OS*2 Deployment Logic
+         * Checks for local build presence
+         */
+        async function checkAvailability() {
+            const btn = document.getElementById('download-btn');
+            const status = document.getElementById('system-status');
+            const hash = document.getElementById('hash-id');
+            
+            // Set this to the actual path of the ISO or Build file
+            const targetPath = 'builds/os2_v2.iso'; 
+
+            try {
+                const response = await fetch(targetPath, { method: 'HEAD' });
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
-                    <div class="bg-lime-900/20 border-l-8 border-lime-500 p-6">
-                        <p class="text-white text-xl font-bold uppercase italic leading-tight">
-                            The assembly-level OS for aggressive decorators. 
-                            Zero latency. Zero bloat. Pure intent.
-                        </p>
-                    </div>
-                    <div class="text-[10px] text-lime-700 font-bold uppercase space-y-1">
-                        <p>> No Telemetry Detected</p>
-                        <p>> 100% User Ownership Verified</p>
-                        <p>> Hardware Sovereignty: ACTIVE</p>
-                    </div>
-                </div>
-            </header>
+                if (response.ok) {
+                    btn.innerText = "Download Now";
+                    btn.className = "btn-ready";
+                    btn.onclick = () => window.location.href = targetPath;
+                    status.innerText = "System Ready for Deployment";
+                    hash.innerText = "f2c9e4a8b1d3...";
+                } else {
+                    throw new Error('Not found');
+                }
+            } catch (error) {
+                btn.innerText = "Coming Soon 2026";
+                btn.className = "btn-pending";
+                status.innerText = "Staging in Progress";
+                hash.innerText = "PENDING_RELEASE";
+            }
+        }
 
-            <section class="grid md:grid-cols-3 gap-8 mb-24">
-                <div class="border-2 border-lime-500 p-8 hover:bg-lime-500 hover:text-black transition-all group">
-                    <h3 class="text-2xl font-black uppercase mb-4 italic">01. Logic</h3>
-                    <p class="text-xs font-bold mb-6 uppercase text-white group-hover:text-black">One line of code per step.</p>
-                    <div class="bg-black text-lime-500 p-4 border border-lime-500 text-[10px] group-hover:border-black">
-                        move rdi 10<br>
-                        push rdi
-                    </div>
-                </div>
+        // Execute on load
+        window.onload = checkAvailability;
+    </script>
 
-                <div class="border-2 border-lime-500 p-8 hover:bg-lime-500 hover:text-black transition-all group">
-                    <h3 class="text-2xl font-black uppercase mb-4 italic">02. Metal</h3>
-                    <p class="text-xs font-bold mb-6 uppercase text-white group-hover:text-black">Direct hardware addressing.</p>
-                    <div class="bg-black text-lime-500 p-4 border border-lime-500 text-[10px] group-hover:border-black">
-                        call optimize_metal<br>
-                        pop rax
-                    </div>
-                </div>
-
-                <div class="border-2 border-lime-500 p-8 hover:bg-lime-500 hover:text-black transition-all group">
-                    <h3 class="text-2xl font-black uppercase mb-4 italic">03. Zest</h3>
-                    <p class="text-xs font-bold mb-6 uppercase text-white group-hover:text-black">High-definition visibility.</p>
-                    <div class="bg-black text-lime-500 p-4 border border-lime-500 text-[10px] group-hover:border-black">
-                        add zest, 0xFF<br>
-                        out 0x80, zest
-                    </div>
-                </div>
-            </section>
-
-            <div class="flex flex-col md:flex-row gap-6 border-t-2 border-lime-900 pt-12">
-                <button class="bg-lime-500 text-black px-12 py-6 font-black text-3xl uppercase hover:bg-white transition-all btn-press shadow-[8px_8px_0px_#333]">
-                    FLASH_KERNEL
-                </button>
-                <button class="border-2 border-white text-white px-12 py-6 font-black text-3xl uppercase hover:bg-lime-500 hover:text-black hover:border-lime-500 transition-all btn-press">
-                    DOCS.SH
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <footer class="max-w-6xl mx-auto mt-12 flex flex-col md:flex-row justify-between text-[10px] font-black uppercase tracking-widest text-lime-900">
-        <div class="flex gap-8">
-            <span>OS*2_STABLE_BUILD</span>
-            <span>2026.04.17</span>
-        </div>
-        <div class="text-center md:text-right mt-4 md:mt-0">
-            LICENSE: RESPECT_PROPERTY // NO_LOOPHOLES_DETECTION_OFF
+    <footer class="border-t border-slate-800 py-12 px-6 mt-20">
+        <div class="max-w-7xl mx-auto text-[9px] font-bold uppercase tracking-[0.3em] text-slate-600">
+            RTECH_ENTERPRISE_DEPLOYMENT // 2026 // ALL_RIGHTS_USER_OWNED
         </div>
     </footer>
+
 </body>
 </html>
