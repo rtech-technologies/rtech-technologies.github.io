@@ -3,160 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTECH | Enterprise Deployment Portal</title>
+    <title>RTECH | OS*2 Infrastructure & Deployment</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --lime: #a3e635; --slate-950: #020617; }
         * { border-radius: 0 !important; font-family: 'JetBrains Mono', monospace; }
-        body { background: var(--slate-950); color: #f8fafc; line-height: 1.5; }
+        body { background: var(--slate-950); color: #f8fafc; line-height: 1.6; scroll-behavior: smooth; }
         
-        .enterprise-border { border: 1px solid #334155; }
+        .enterprise-border { border: 1px solid #1e293b; }
+        .bg-glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); }
+        
         .status-pulse {
-            width: 8px;
-            height: 8px;
-            background-color: var(--lime);
-            display: inline-block;
-            margin-right: 8px;
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            width: 10px; height: 10px; background-color: var(--lime);
+            display: inline-block; margin-right: 12px; animation: pulse 2s infinite;
         }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
         
         #download-btn {
-            font-weight: 800;
-            padding: 12px 32px;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            font-size: 0.875rem;
+            font-weight: 800; padding: 16px 40px; transition: all 0.3s ease;
+            text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.1em;
         }
 
-        .btn-ready {
-            background: var(--lime);
-            color: #000;
-            cursor: pointer;
-            border: 1px solid var(--lime);
-        }
+        .btn-ready { background: var(--lime); color: #000; cursor: pointer; border: 1px solid var(--lime); }
+        .btn-ready:hover { background: #fff; border-color: #fff; transform: translateY(-2px); }
+        .btn-pending { background: transparent; color: #475569; cursor: not-allowed; border: 1px solid #1e293b; }
 
-        .btn-ready:hover {
-            background: #fff;
-            border-color: #fff;
-        }
-
-        .btn-pending {
-            background: transparent;
-            color: #475569;
-            cursor: not-allowed;
-            border: 1px solid #1e293b;
+        .warning-strip {
+            background: linear-gradient(45deg, #1e1b4b 25%, #020617 25%, #020617 50%, #1e1b4b 50%, #1e1b4b 75%, #020617 75%, #020617 100%);
+            background-size: 56.57px 56.57px;
         }
     </style>
 </head>
 <body class="selection:bg-lime-500 selection:text-black">
 
-    <nav class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between h-16 items-center">
-            <div class="flex items-center gap-10">
-                <a href="index.html" class="font-black text-xl tracking-tighter hover:text-lime-500 transition-colors uppercase">RTECH</a>
-                <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                    <span class="text-white">Deployment_Portal</span>
+    <nav class="border-b border-slate-800 bg-slate-950/90 backdrop-blur-xl sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
+            <div class="flex items-center gap-12">
+                <a href="index.html" class="font-black text-2xl tracking-tighter hover:text-lime-500 transition-colors uppercase">RTECH</a>
+                <div class="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+                    <a href="#core" class="hover:text-white">Architecture</a>
+                    <a href="#deployment" class="text-lime-500 border-b border-lime-500">Deployment</a>
                 </div>
             </div>
-            <div class="text-[10px] font-black uppercase px-3 py-1 border border-slate-700">
-                Cycle: 2026.Q2
+            <div class="text-[10px] font-black uppercase px-4 py-1.5 border border-slate-700 bg-slate-900">
+                Release_Cycle: 2026.Q2
             </div>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 py-20">
-        <section class="mb-20">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="status-pulse"></span>
-                <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-lime-500" id="system-status">Checking System Availability...</span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tighter italic uppercase">
-                OS*2 <span class="text-slate-500">Limemade</span>
+    <main class="max-w-7xl mx-auto px-6 py-24">
+        
+        <header class="mb-32">
+            <h1 class="text-6xl md:text-9xl font-black mb-10 tracking-tighter italic uppercase leading-none">
+                OS*2 <span class="text-slate-700">LIMEMADE</span>
             </h1>
-        </section>
+            <p class="text-slate-400 max-w-2xl text-xl leading-relaxed font-bold uppercase italic">
+                The assembly-level sovereign environment. One line, one step, zero compromise.
+            </p>
+        </header>
 
-        <div class="grid lg:grid-cols-3 gap-6">
-            <div class="lg:col-span-2 border border-slate-800 p-8 md:p-12 bg-slate-900/10 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-10">
-                        <h2 class="text-2xl font-black uppercase italic">Primary_Kernel_Image</h2>
-                        <span class="text-[10px] font-bold bg-slate-800 px-2 py-1 text-slate-400">BUILD_2026_RC1</span>
+        <section class="mb-32 border-2 border-indigo-500/30 warning-strip p-8 md:p-12 relative overflow-hidden">
+            <div class="relative z-10">
+                <div class="flex items-center gap-4 mb-6 text-indigo-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <h2 class="text-2xl font-black uppercase italic tracking-tighter">Technical_Advisory_2026</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-4">
+                        <p class="text-indigo-200 font-bold uppercase text-sm leading-relaxed">
+                            OS*2 is currently in a <span class="text-white underline">pre-stable development cycle</span>. While the kernel logic is verified, direct hardware flashing may result in unrecoverable system states on non-RTECH hardware.
+                        </p>
                     </div>
-                    
-                    <div class="space-y-4 mb-12">
-                        <div class="flex justify-between border-b border-slate-800 pb-2">
-                            <span class="text-xs text-slate-500 uppercase font-bold">SHA-256</span>
-                            <span class="text-xs font-mono text-slate-400" id="hash-id">----------------</span>
-                        </div>
+                    <div class="border-l-4 border-indigo-500 pl-8">
+                        <p class="text-white font-black uppercase text-lg mb-2">Recommended: VMware Virtualization</p>
+                        <p class="text-slate-400 font-bold uppercase text-xs leading-relaxed">
+                            To ensure system safety and property integrity, RTECH strongly suggests testing the ISO within a **VMware** environment. This allows for isolated execution of the One-Line-Logic protocols before full-metal deployment.
+                        </p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="flex flex-col md:flex-row gap-4">
+        <section id="core" class="mb-32 grid md:grid-cols-3 gap-8">
+            <div class="enterprise-border p-8 bg-slate-900/20">
+                <h3 class="text-xs font-black uppercase text-lime-500 mb-6 tracking-widest">Logic Protocol</h3>
+                <p class="text-[11px] font-bold uppercase text-slate-400">One line of code per machine step. Total transparency. No corporate backdoors.</p>
+            </div>
+            <div class="enterprise-border p-8 bg-slate-900/20">
+                <h3 class="text-xs font-black uppercase text-lime-500 mb-6 tracking-widest">Zest Interface</h3>
+                <p class="text-[11px] font-bold uppercase text-slate-400">High-definition, high-visibility UI designed for aggressive decorators.</p>
+            </div>
+            <div class="enterprise-border p-8 bg-slate-900/20">
+                <h3 class="text-xs font-black uppercase text-lime-500 mb-6 tracking-widest">Property Rights</h3>
+                <p class="text-[11px] font-bold uppercase text-slate-400">Protected by the RSL-2026 License. You own the metal, you own the code.</p>
+            </div>
+        </section>
+
+        <section id="deployment" class="pt-24 border-t-4 border-white">
+            <div class="flex items-center gap-3 mb-10">
+                <span class="status-pulse"></span>
+                <span class="text-[11px] font-black uppercase tracking-[0.5em] text-lime-500" id="system-status">Scanning Build Mirrors...</span>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <h4 class="text-2xl font-black uppercase italic mb-6">ISO Deployment Node</h4>
+                    <p class="text-slate-500 font-bold uppercase text-xs mb-10">
+                        Select a distribution mirror. If your node is not yet synchronized, the system will default to "Coming Soon."
+                    </p>
                     <button id="download-btn" class="btn-pending">
                         Initializing...
                     </button>
-                    
-                    <button class="border border-slate-700 text-white px-8 py-3 font-bold text-sm hover:bg-slate-800 transition-all uppercase">
-                        Request_Key
-                    </button>
+                </div>
+                <div class="bg-slate-900/50 p-6 border border-slate-800">
+                    <div class="text-[10px] font-black text-slate-500 uppercase mb-4 tracking-widest">Staging_Stats</div>
+                    <div class="space-y-3 font-mono text-[10px]">
+                        <div class="flex justify-between"><span>Kernel:</span> <span>STABLE_LIME</span></div>
+                        <div class="flex justify-between"><span>ISO_Ver:</span> <span>2.0.26_RC</span></div>
+                        <div class="flex justify-between"><span>Mirror:</span> <span>USA_WEST_01</span></div>
+                    </div>
                 </div>
             </div>
-
-            <div class="enterprise-border p-8 bg-slate-950">
-                <h3 class="text-xs font-black uppercase text-lime-500 mb-6 tracking-widest">Specifications</h3>
-                <ul class="text-[11px] font-bold uppercase space-y-4 text-slate-400">
-                    <li>CPU: RTECH R1-SERIES</li>
-                    <li>PROPERTY: USER_OWNED</li>
-                    <li>YEAR: 2026</li>
-                </ul>
-            </div>
-        </div>
+        </section>
     </main>
 
+    <footer class="border-t border-slate-900 py-20 px-6 mt-32">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.5em] text-slate-700">
+            <span>RTECH_CORP // DEPLOYMENT_PORTAL</span>
+            <span class="mt-4 md:mt-0 italic">Respect People's Property.</span>
+        </div>
+    </footer>
+
     <script>
-        /**
-         * OS*2 Deployment Logic
-         * Checks for local build presence
-         */
         async function checkAvailability() {
             const btn = document.getElementById('download-btn');
             const status = document.getElementById('system-status');
-            const hash = document.getElementById('hash-id');
-            
-            // Set this to the actual path of the ISO or Build file
-            const targetPath = 'builds/os2_v2.iso'; 
+            const targetPath = 'builds/os2_limemade_final.iso'; 
 
             try {
                 const response = await fetch(targetPath, { method: 'HEAD' });
-                
                 if (response.ok) {
                     btn.innerText = "Download Now";
                     btn.className = "btn-ready";
                     btn.onclick = () => window.location.href = targetPath;
-                    status.innerText = "System Ready for Deployment";
-                    hash.innerText = "f2c9e4a8b1d3...";
+                    status.innerText = "Status: ISO_VERIFIED_STABLE";
                 } else {
                     throw new Error('Not found');
                 }
             } catch (error) {
                 btn.innerText = "Coming Soon 2026";
                 btn.className = "btn-pending";
-                status.innerText = "Staging in Progress";
-                hash.innerText = "PENDING_RELEASE";
+                status.innerText = "Status: STAGING_IN_PROGRESS";
             }
         }
-
-        // Execute on load
         window.onload = checkAvailability;
     </script>
-
-    <footer class="border-t border-slate-800 py-12 px-6 mt-20">
-        <div class="max-w-7xl mx-auto text-[9px] font-bold uppercase tracking-[0.3em] text-slate-600">
-            RTECH_ENTERPRISE_DEPLOYMENT // 2026 // ALL_RIGHTS_USER_OWNED
-        </div>
-    </footer>
-
 </body>
 </html>
