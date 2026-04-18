@@ -7,57 +7,110 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --lime: #a3e635; }
+        :root { --lime: #a3e635; --zinc-950: #09090b; }
         * { border-radius: 0 !important; font-family: 'JetBrains Mono', monospace; }
-        body { background: #000; color: #fff; line-height: 1.1; }
+        body { background: var(--zinc-950); color: #fff; line-height: 1.1; }
         .os2-border { border: 2px solid white; }
-        .os2-shadow { box-shadow: 10px 10px 0px var(--lime); }
-        .grid-bg { background-image: linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px); background-size: 40px 40px; }
+        .os2-shadow { box-shadow: 10px 10px 0px white; }
+        .grid-bg { 
+            background-image: linear-gradient(#18181b 1px, transparent 1px), 
+                              linear-gradient(90deg, #18181b 1px, transparent 1px); 
+            background-size: 32px 32px; 
+        }
+        .btn-active:active { transform: translate(4px, 4px); box-shadow: none; }
     </style>
 </head>
-<body class="grid-bg">
-    <nav class="border-b-4 border-white bg-black sticky top-0 z-50 p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="bg-lime-500 text-black px-4 py-1 font-black text-2xl border-2 border-black">RTECH</div>
-            <div class="flex gap-6 text-xs font-bold uppercase tracking-tighter">
-                <a href="#philosophy" class="hover:text-lime-500">/The_Philosophy</a>
-                <a href="#license" class="hover:text-lime-500">/The_License</a>
-                <a href="os2.html" class="bg-white text-black px-3 py-1 hover:bg-lime-500">GET_OS*2</a>
+<body class="grid-bg min-h-screen">
+
+    <nav class="border-b-4 border-white bg-black sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between h-16 items-center">
+            <div class="flex items-center gap-8">
+                <div class="bg-white text-black px-4 py-1 font-black text-2xl">RTECH</div>
+                <div class="hidden md:block text-[10px] font-bold tracking-[0.3em] text-zinc-500">
+                    EST_2024 // REL_2026.04
+                </div>
+            </div>
+            <div class="flex items-center gap-6 text-xs font-black">
+                <a href="#manifesto" class="hover:text-lime-500 uppercase">Manifesto</a>
+                <a href="#license" class="hover:text-lime-500 uppercase">License</a>
+                <a href="os2.html" class="bg-lime-500 text-black px-4 py-2 border-2 border-black hover:bg-white transition-all btn-active">
+                    GET_OS*2
+                </a>
             </div>
         </div>
     </nav>
 
-    <header class="max-w-7xl mx-auto px-4 py-24">
-        <div class="os2-border p-12 os2-shadow bg-black">
-            <div class="text-lime-500 text-[10px] font-black mb-4 uppercase tracking-[0.5em]">[TIMESTAMP: 2026.04.17]</div>
-            <h1 class="text-7xl md:text-9xl font-black italic tracking-tighter uppercase mb-8 leading-[0.8]">
-                Serious.<br><span class="text-lime-500">Sovereign.</span>
-            </h1>
-            <p class="text-xl max-w-2xl border-l-8 border-white pl-6 mb-12 text-slate-300 font-bold uppercase">
-                We build the hardware and the standards for aggressive decorators. Your machine is your property. Zero loopholes.
+    <main class="max-w-7xl mx-auto px-4 py-20">
+        <header class="mb-32">
+            <div class="os2-border bg-black p-8 md:p-16 os2-shadow relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 text-[8px] text-zinc-800 leading-none select-none">
+                    RTECH_PROPERTY_PROTECTION_V2<br>NO_BACKDOORS_FOUND<br>USER_IS_ROOT
+                </div>
+
+                <h1 class="text-6xl md:text-9xl font-black uppercase italic tracking-tighter mb-8 leading-[0.8]">
+                    Serious.<br>Hardware.
+                </h1>
+                
+                <div class="max-w-2xl border-l-8 border-white pl-8 py-4 mb-12">
+                    <p class="text-xl md:text-2xl font-bold uppercase text-zinc-300">
+                        We build the silicon and the standards that respect your sovereignty.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-white text-black px-10 py-5 font-black text-xl hover:bg-lime-500 transition-all btn-active">
+                        VIEW_SPECS
+                    </button>
+                    <button class="os2-border text-white px-10 py-5 font-black text-xl hover:bg-white hover:text-black transition-all btn-active">
+                        CONTACT_FACTORY
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <section id="license" class="grid md:grid-cols-2 gap-0 os2-border bg-black mb-32">
+            <div class="p-12 border-b-2 md:border-b-0 md:border-r-2 border-white">
+                <h2 class="text-3xl font-black mb-8 italic uppercase tracking-tighter text-lime-500">
+                    The Property License
+                </h2>
+                <div class="space-y-6 text-sm font-bold uppercase leading-relaxed text-zinc-400">
+                    <p>1. Do not commit vandalism unless it is your own property. Then, it is <span class="text-white">Aggressive Decorating</span>.</p>
+                    <p>2. Your OS license is "Respect People's Property".</p>
+                    <p>3. You may not remove previous rules.</p>
+                </div>
+            </div>
+            <div class="p-12">
+                <h2 class="text-3xl font-black mb-8 italic uppercase tracking-tighter text-lime-500">
+                    The Revenue Protocol
+                </h2>
+                <div class="space-y-6 text-sm font-bold uppercase leading-relaxed text-zinc-400">
+                    <p>1. If the previous license was commercial, share profit with them.</p>
+                    <p>2. If you make it commercial, you must share profit with <span class="text-white">RTECH</span>.</p>
+                    <p>3. No loopholes. Sovereignty is a two-way street.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-4 border-lime-500 p-12 bg-black text-center">
+            <h3 class="text-2xl font-black mb-6 uppercase">Ready to interface with the metal?</h3>
+            <p class="text-zinc-500 mb-8 max-w-lg mx-auto font-bold uppercase text-xs">
+                OS*2 is the assembly-level operating system designed for RTECH hardware. 
+                One line of code per step. Zero bloat. Pure zest.
             </p>
-            <div class="flex gap-4">
-                <button class="os2-border bg-white text-black px-8 py-4 font-black text-xl hover:bg-lime-500 hover:border-black transition-all">FACTORY_SPECS</button>
+            <a href="os2.html" class="inline-block bg-lime-500 text-black px-12 py-4 font-black text-xl hover:bg-white transition-all btn-active">
+                PROCEED_TO_OS*2
+            </a>
+        </section>
+    </main>
+
+    <footer class="border-t-4 border-white bg-black p-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-4xl font-black italic">RTECH<span class="text-lime-500">_</span></div>
+            <div class="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600">
+                &copy; 2026 RTECH-TECHNOLOGIES // NO CORPORATE OVERLORDS // MADE FOR THE USER
             </div>
         </div>
-    </header>
-
-    <section id="license" class="max-w-7xl mx-auto px-4 py-32 border-t-2 border-zinc-800">
-        <h2 class="text-4xl font-black mb-16 uppercase italic">The RTECH License (2026 Edition)</h2>
-        <div class="grid md:grid-cols-2 gap-16 text-sm font-bold uppercase leading-relaxed">
-            <div class="p-8 border-2 border-zinc-800">
-                <p class="text-lime-500 mb-4 font-black">01_PROPERTY_RIGHTS</p>
-                <p class="text-slate-500">You may not remove previous rules. Vandalism on self-owned property is "Aggressive Decorating." We protect your right to tinker.</p>
-            </div>
-            <div class="p-8 border-2 border-zinc-800">
-                <p class="text-lime-500 mb-4 font-black">02_REVENUE_LOGIC</p>
-                <p class="text-slate-500">Commercial use requires profit sharing. You profit from us, we share. We profit from your changes, you share. No loopholes.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-zinc-950 p-16 mt-24 text-[10px] text-center font-bold tracking-[0.5em] text-slate-600 border-t-2 border-white">
-        RTECH-TECHNOLOGIES // VER_2026.04 // PROPERTY_OF_USER
     </footer>
+
 </body>
 </html>
