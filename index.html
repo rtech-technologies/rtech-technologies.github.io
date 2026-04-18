@@ -1,116 +1,152 @@
+Understood. We're keeping the focus purely on the **RTECH** mission: hardware sovereignty, the right to mod, and the 2026 roadmap. I have removed the anti-corporate rhetoric to focus on the positive "Sovereign Industrial" identity and added the official contact point.
+
+### RTECH | Sovereign Industrial Root (`index.html`)
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTECH | Industrial Sovereignty</title>
+    <title>RTECH | Sovereign Industrial 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --lime: #a3e635; --zinc-950: #09090b; }
         * { border-radius: 0 !important; font-family: 'JetBrains Mono', monospace; }
-        body { background: var(--zinc-950); color: #fff; line-height: 1.1; }
-        .os2-border { border: 2px solid white; }
-        .os2-shadow { box-shadow: 10px 10px 0px white; }
-        .grid-bg { 
-            background-image: linear-gradient(#18181b 1px, transparent 1px), 
-                              linear-gradient(90deg, #18181b 1px, transparent 1px); 
-            background-size: 32px 32px; 
-        }
-        .btn-active:active { transform: translate(4px, 4px); box-shadow: none; }
+        body { background: var(--zinc-950); color: #fff; line-height: 1.2; }
+        
+        .industrial-border { border: 2px solid #27272a; }
+        .license-box { background: #000; border: 1px solid #3f3f46; position: relative; }
+        
+        .nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #71717a; transition: all 0.2s; }
+        .nav-link:hover { color: #fff; border-bottom: 2px solid var(--lime); }
+        
+        .roadmap-card { border-left: 2px solid #3f3f46; transition: all 0.3s ease; }
+        .roadmap-card:hover { border-left-color: var(--lime); background: #111113; }
     </style>
 </head>
-<body class="grid-bg min-h-screen">
+<body class="selection:bg-lime-500 selection:text-black">
 
-    <nav class="border-b-4 border-white bg-black sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between h-16 items-center">
-            <div class="flex items-center gap-8">
-                <div class="bg-white text-black px-4 py-1 font-black text-2xl">RTECH</div>
-                <div class="hidden md:block text-[10px] font-bold tracking-[0.3em] text-zinc-500">
-                    EST_2024 // REL_2026.04
+    <nav class="border-b-2 border-white bg-black sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
+            <div class="flex items-center gap-12">
+                <div class="font-black text-3xl tracking-tighter uppercase italic">RTECH<span class="text-lime-500">_</span></div>
+                <div class="hidden lg:flex gap-10">
+                    <a href="#modding" class="nav-link">/Modding</a>
+                    <a href="#roadmap" class="nav-link">/Roadmap</a>
+                    <a href="#license" class="nav-link">/License</a>
                 </div>
             </div>
-            <div class="flex items-center gap-6 text-xs font-black">
-                <a href="#manifesto" class="hover:text-lime-500 uppercase">Manifesto</a>
-                <a href="#license" class="hover:text-lime-500 uppercase">License</a>
-                <a href="os2.html" class="bg-lime-500 text-black px-4 py-2 border-2 border-black hover:bg-white transition-all btn-active">
+            <div class="flex items-center gap-6">
+                <a href="os2.html" class="bg-lime-500 text-black px-8 py-2 text-xs font-black uppercase hover:bg-white transition-all">
                     GET_OS*2
                 </a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 py-20">
-        <header class="mb-32">
-            <div class="os2-border bg-black p-8 md:p-16 os2-shadow relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 text-[8px] text-zinc-800 leading-none select-none">
-                    RTECH_PROPERTY_PROTECTION_V2<br>NO_BACKDOORS_FOUND<br>USER_IS_ROOT
-                </div>
-
-                <h1 class="text-6xl md:text-9xl font-black uppercase italic tracking-tighter mb-8 leading-[0.8]">
-                    Serious.<br>Hardware.
+    <main>
+        <section class="relative pt-32 pb-32 px-6 border-b border-zinc-900 overflow-hidden">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="bg-white text-black inline-block px-3 py-1 text-[10px] font-black uppercase mb-6 italic">Property Standards Verified</div>
+                <h1 class="text-7xl md:text-9xl font-black uppercase italic mb-10 tracking-tighter leading-[0.8]">
+                    Build.<br>Mod.<br><span class="text-lime-500 underline decoration-white">Own.</span>
                 </h1>
-                
-                <div class="max-w-2xl border-l-8 border-white pl-8 py-4 mb-12">
-                    <p class="text-xl md:text-2xl font-bold uppercase text-zinc-300">
-                        We build the silicon and the standards that respect your sovereignty.
-                    </p>
-                </div>
-
-                <div class="flex flex-wrap gap-4">
-                    <button class="bg-white text-black px-10 py-5 font-black text-xl hover:bg-lime-500 transition-all btn-active">
-                        VIEW_SPECS
-                    </button>
-                    <button class="os2-border text-white px-10 py-5 font-black text-xl hover:bg-white hover:text-black transition-all btn-active">
-                        CONTACT_FACTORY
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <section id="license" class="grid md:grid-cols-2 gap-0 os2-border bg-black mb-32">
-            <div class="p-12 border-b-2 md:border-b-0 md:border-r-2 border-white">
-                <h2 class="text-3xl font-black mb-8 italic uppercase tracking-tighter text-lime-500">
-                    The Property License
-                </h2>
-                <div class="space-y-6 text-sm font-bold uppercase leading-relaxed text-zinc-400">
-                    <p>1. Do not commit vandalism unless it is your own property. Then, it is <span class="text-white">Aggressive Decorating</span>.</p>
-                    <p>2. Your OS license is "Respect People's Property".</p>
-                    <p>3. You may not remove previous rules.</p>
-                </div>
-            </div>
-            <div class="p-12">
-                <h2 class="text-3xl font-black mb-8 italic uppercase tracking-tighter text-lime-500">
-                    The Revenue Protocol
-                </h2>
-                <div class="space-y-6 text-sm font-bold uppercase leading-relaxed text-zinc-400">
-                    <p>1. If the previous license was commercial, share profit with them.</p>
-                    <p>2. If you make it commercial, you must share profit with <span class="text-white">RTECH</span>.</p>
-                    <p>3. No loopholes. Sovereignty is a two-way street.</p>
+                <p class="text-zinc-400 max-w-2xl text-xl font-bold uppercase mb-12 leading-relaxed">
+                    RTECH provides the industrial backbone for a new era of user-owned hardware. From the silicon logic to the final mod, you are in control.
+                </p>
+                <div class="text-sm font-black text-white">
+                    CONTACT: <a href="mailto:richardwojc@gmail.com" class="text-lime-500 hover:underline">richardwojc@gmail.com</a>
                 </div>
             </div>
         </section>
 
-        <section class="border-4 border-lime-500 p-12 bg-black text-center">
-            <h3 class="text-2xl font-black mb-6 uppercase">Ready to interface with the metal?</h3>
-            <p class="text-zinc-500 mb-8 max-w-lg mx-auto font-bold uppercase text-xs">
-                OS*2 is the assembly-level operating system designed for RTECH hardware. 
-                One line of code per step. Zero bloat. Pure zest.
-            </p>
-            <a href="os2.html" class="inline-block bg-lime-500 text-black px-12 py-4 font-black text-xl hover:bg-white transition-all btn-active">
-                PROCEED_TO_OS*2
+        <section id="modding" class="max-w-7xl mx-auto px-6 py-32">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-xs font-black uppercase tracking-[0.5em] text-lime-500 mb-6 italic">// MODDING_PROTOCOL</h2>
+                    <h3 class="text-5xl font-black uppercase italic mb-8 text-white">Sovereignty is a Right.</h3>
+                    <p class="text-zinc-400 font-bold uppercase text-sm leading-loose mb-8">
+                        We define **Modding** as any intentional change to your own property. RTECH hardware is built with accessible architecture, allowing you to optimize, decorate, and reconfigure your system without restriction.
+                    </p>
+                    <div class="border-l-4 border-white pl-8 py-2">
+                        <p class="text-white font-black uppercase italic">"Respect people's property. Mod your own."</p>
+                    </div>
+                </div>
+                <div class="industrial-border p-12 bg-zinc-900/50">
+                    <h4 class="text-white font-black mb-6 uppercase tracking-widest italic">Hardware Identity</h4>
+                    <p class="text-[10px] text-zinc-500 font-bold uppercase mb-8">RTECH is currently focused on core silicon and workstation nodes. Mobile form factors are currently in research.</p>
+                    <div class="space-y-4 text-xs font-bold uppercase">
+                        <div class="flex justify-between border-b border-zinc-800 pb-2"><span>Logic Style:</span> <span>One-Line_Step</span></div>
+                        <div class="flex justify-between border-b border-zinc-800 pb-2"><span>User State:</span> <span class="text-lime-500 font-black">ROOT_SOVEREIGN</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="bg-zinc-900/30 border-y border-zinc-900 py-32 px-6">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-xs font-black uppercase tracking-[0.5em] text-lime-500 mb-16 italic">// 2026_ROADMAP</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="roadmap-card p-10">
+                        <h4 class="text-xl font-black uppercase italic mb-4">The R1 Node</h4>
+                        <p class="text-xs font-bold uppercase text-zinc-500 leading-relaxed">The primary desktop architecture. Designed for direct OS*2 integration and high-performance modding environments.</p>
+                    </div>
+                    <div class="roadmap-card p-10">
+                        <h4 class="text-xl font-black uppercase italic mb-4">Sovereign Server Units</h4>
+                        <p class="text-xs font-bold uppercase text-zinc-500 leading-relaxed">Scaling property rights to the rack. High-density compute nodes with zero remote management backdoors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="license" class="bg-white text-black py-32 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-between items-end mb-16 border-b-4 border-black pb-4">
+                    <h2 class="text-5xl font-black uppercase italic tracking-tighter">Full License: RSL-2026</h2>
+                </div>
+                
+                <div class="grid lg:grid-cols-3 gap-12">
+                    <div class="license-box p-8 bg-black text-white">
+                        <h4 class="text-lime-500 font-black text-sm mb-4 uppercase">01. Modding Policy</h4>
+                        <p class="text-[11px] font-bold uppercase leading-relaxed">
+                            Do not commit vandalism unless it is your own property. If it belongs to you, it is officially classified as modding. Your OS license is "Respect People's Property."
+                        </p>
+                    </div>
+                    <div class="license-box p-8 bg-black text-white">
+                        <h4 class="text-lime-500 font-black text-sm mb-4 uppercase">02. Rule Persistence</h4>
+                        <p class="text-[11px] font-bold uppercase leading-relaxed">
+                            You may not remove previous rules. This license is immutable. RTECH protects its products, but no loopholes exist to bypass the sovereignty of the user.
+                        </p>
+                    </div>
+                    <div class="license-box p-8 bg-black text-white">
+                        <h4 class="text-lime-500 font-black text-sm mb-4 uppercase">03. Commercial Logic</h4>
+                        <p class="text-[11px] font-bold uppercase leading-relaxed">
+                            All changes must be marked in a readable place. If you monetize an RTECH-based product, you must share profit with RTECH. If the previous license was commercial, share with them.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-40 px-6 text-center">
+            <h2 class="text-4xl font-black uppercase italic mb-8">Direct Technical Interface.</h2>
+            <div class="mb-12">
+                <p class="text-zinc-500 font-bold uppercase text-xs mb-4">Inquiries / Commercial Registration:</p>
+                <a href="mailto:richardwojc@gmail.com" class="text-2xl font-black text-white hover:text-lime-500 transition-colors">richardwojc@gmail.com</a>
+            </div>
+            <a href="os2.html" class="inline-block border-2 border-white px-16 py-6 font-black text-xl uppercase hover:bg-lime-500 hover:text-black transition-all">
+                DEPLOY_OS*2
             </a>
         </section>
     </main>
 
-    <footer class="border-t-4 border-white bg-black p-12">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-4xl font-black italic">RTECH<span class="text-lime-500">_</span></div>
-            <div class="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600">
-                &copy; 2026 RTECH-TECHNOLOGIES // NO CORPORATE OVERLORDS // MADE FOR THE USER
-            </div>
-        </div>
+    <footer class="p-12 border-t-2 border-white bg-black flex justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600">
+        <div>RTECH-TECHNOLOGIES // &copy; 2026</div>
+        <div class="italic">Respect People's Property.</div>
     </footer>
 
 </body>
 </html>
+```
