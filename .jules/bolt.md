@@ -1,0 +1,3 @@
+## 2026-04-17 - Resource Hints and Variable Fonts
+**Learning:** For static sites using third-party CDNs (Google Fonts, Tailwind), `preconnect` hints can shave off significant connection setup time (~20-50ms depending on network). Additionally, using variable font ranges (e.g., `300..900`) instead of discrete weights ensures all used weights are covered (fixing missing `font-black` 900 weight) and allows the browser to optimize font fetching more effectively.
+**Action:** Always check for used font weights that might be missing from the CSS request and add `preconnect` for all critical external assets.
