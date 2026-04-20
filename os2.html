@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RTECH | OS*2 Full Specifications</title>
+    <!-- Performance: Resource Hints for faster connection setup -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..800&display=swap" rel="stylesheet">
     <style>
         :root { --lime: #a3e635; --slate-950: #020617; }
         * { border-radius: 0 !important; font-family: 'JetBrains Mono', monospace; }
@@ -165,7 +171,8 @@ out 0x80, zest       ; DISPLAY_ACTIVE
                 status.innerText = "Status: Mirror_Sync_In_Progress";
             }
         }
-        window.onload = checkAvailability;
+        // Performance: Execute immediately to avoid waiting for heavy external assets
+        checkAvailability();
     </script>
 </body>
 </html>
