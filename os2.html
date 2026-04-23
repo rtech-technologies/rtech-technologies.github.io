@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RTECH | OS*2 Full Specifications</title>
+    <!-- Resource hints to speed up connection setup to critical CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Optimized font request: only loading necessary weights (400, 700, 800) to keep payload small -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --lime: #a3e635; --slate-950: #020617; }
@@ -165,7 +170,9 @@ out 0x80, zest       ; DISPLAY_ACTIVE
                 status.innerText = "Status: Mirror_Sync_In_Progress";
             }
         }
-        window.onload = checkAvailability;
+        // PERFORMANCE: Execute availability check immediately to improve interactivity.
+        // Waiting for window.onload would delay the UI update until all external assets (like large fonts) are loaded.
+        checkAvailability();
     </script>
 </body>
 </html>
