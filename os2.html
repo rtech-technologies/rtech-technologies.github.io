@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RTECH | OS*2 Full Specifications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Use variable weight range for JetBrains Mono to support all font weights (including 900) and italics efficiently -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <style>
         :root { --lime: #a3e635; --slate-950: #020617; }
         * { border-radius: 0 !important; font-family: 'JetBrains Mono', monospace; }
@@ -165,7 +170,9 @@ out 0x80, zest       ; DISPLAY_ACTIVE
                 status.innerText = "Status: Mirror_Sync_In_Progress";
             }
         }
-        window.onload = checkAvailability;
+        // Optimize: Execute availability check immediately rather than waiting for window.onload
+        // to prevent large external assets from delaying user interactivity.
+        checkAvailability();
     </script>
 </body>
 </html>
