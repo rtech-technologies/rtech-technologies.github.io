@@ -9,6 +9,7 @@
     <style>
         :root { --lime: #a3e635; --slate-950: #020617; }
         * { border-radius: 0 !important; font-family: 'JetBrains Mono', monospace; }
+        *:focus-visible { outline: 2px solid var(--lime) !important; outline-offset: 2px; }
         body { background: var(--slate-950); color: #f8fafc; line-height: 1.6; scroll-behavior: smooth; }
         
         .enterprise-border { border: 1px solid #1e293b; }
@@ -35,12 +36,15 @@
     </style>
 </head>
 <body class="selection:bg-lime-500 selection:text-black">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-lime-500 focus:text-black focus:px-4 focus:py-2 focus:font-black focus:uppercase focus:text-xs">
+        Skip to content
+    </a>
 
     <nav class="border-b border-slate-800 bg-slate-950/90 backdrop-blur-xl sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
             <div class="flex items-center gap-12">
                 <a href="index.html" class="font-black text-2xl tracking-tighter hover:text-lime-500 transition-colors uppercase">RTECH</a>
-                <div class="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+                <div class="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
                     <a href="#about" class="hover:text-white">Specs</a>
                     <a href="#testing" class="hover:text-white">VM_Guidance</a>
                     <a href="#deployment" class="text-lime-500 underline underline-offset-8">Deployment</a>
@@ -50,7 +54,7 @@
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 py-24">
+    <main id="main-content" tabindex="-1" class="max-w-7xl mx-auto px-6 py-24 focus:outline-none">
         
         <header class="mb-32">
             <h1 class="text-7xl md:text-9xl font-black mb-10 tracking-tighter italic uppercase leading-none">
@@ -72,11 +76,11 @@
                     <div class="space-y-6">
                         <div class="enterprise-border p-6">
                             <h4 class="text-lime-500 font-black text-xs uppercase mb-2">Respect Property Protocol</h4>
-                            <p class="text-[11px] text-slate-500 uppercase font-bold">The OS is your property. RTECH cannot remote-wipe, update without consent, or access your local file table.</p>
+                            <p class="text-[11px] text-slate-400 uppercase font-bold">The OS is your property. RTECH cannot remote-wipe, update without consent, or access your local file table.</p>
                         </div>
                         <div class="enterprise-border p-6">
                             <h4 class="text-lime-500 font-black text-xs uppercase mb-2">The Zest UI</h4>
-                            <p class="text-[11px] text-slate-500 uppercase font-bold">High-contrast, zero-latency interface designed for aggressive decorators and heavy industry.</p>
+                            <p class="text-[11px] text-slate-400 uppercase font-bold">High-contrast, zero-latency interface designed for aggressive decorators and heavy industry.</p>
                         </div>
                     </div>
                 </div>
@@ -109,7 +113,7 @@ out 0x80, zest       ; DISPLAY_ACTIVE
         </section>
 
         <section id="deployment" class="pt-24 border-t-4 border-white">
-            <h2 class="text-xs font-black uppercase tracking-[0.6em] text-slate-500 mb-12 italic">// 03_DEPLOYMENT_NODE</h2>
+            <h2 class="text-xs font-black uppercase tracking-[0.6em] text-slate-400 mb-12 italic">// 03_DEPLOYMENT_NODE</h2>
             <div class="flex items-center gap-3 mb-10">
                 <span class="status-pulse"></span>
                 <span class="text-[11px] font-black uppercase tracking-[0.5em] text-lime-500" id="system-status">Checking Build Mirror...</span>
@@ -117,7 +121,7 @@ out 0x80, zest       ; DISPLAY_ACTIVE
             
             <div class="grid lg:grid-cols-3 gap-12">
                 <div class="lg:col-span-2">
-                    <p class="text-slate-500 font-bold uppercase text-xs mb-10">
+                    <p class="text-slate-400 font-bold uppercase text-xs mb-10">
                         The "Download" button will activate once the RTECH-Mirror has verified the latest ISO build for your region. 
                     </p>
                     <button id="download-btn" class="btn-pending">
@@ -125,7 +129,7 @@ out 0x80, zest       ; DISPLAY_ACTIVE
                     </button>
                 </div>
                 <div class="bg-black p-8 border border-slate-800">
-                    <h4 class="text-[10px] font-black text-slate-500 uppercase mb-6 tracking-widest">Staging_Inventory</h4>
+                    <h4 class="text-[10px] font-black text-slate-400 uppercase mb-6 tracking-widest">Staging_Inventory</h4>
                     <ul class="text-[10px] font-bold uppercase space-y-4 text-slate-400">
                         <li class="flex justify-between border-b border-slate-900 pb-2"><span>Architecture:</span> <span class="text-white">x86_64_R1</span></li>
                         <li class="flex justify-between border-b border-slate-900 pb-2"><span>Environment:</span> <span class="text-white">VMware_Ready</span></li>
@@ -137,7 +141,7 @@ out 0x80, zest       ; DISPLAY_ACTIVE
     </main>
 
     <footer class="border-t border-slate-900 py-16 px-6 mt-32 bg-black">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.5em] text-slate-700">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">
             <span>RTECH_CORPORATE // 2026 // ISO_DEPLOYMENT_STATION</span>
             <span class="mt-4 md:mt-0 italic">Respecting User Property Since 2024.</span>
         </div>
@@ -162,6 +166,7 @@ out 0x80, zest       ; DISPLAY_ACTIVE
             } catch (error) {
                 btn.innerText = "Coming Soon 2026";
                 btn.className = "btn-pending";
+                btn.disabled = true;
                 status.innerText = "Status: Mirror_Sync_In_Progress";
             }
         }
