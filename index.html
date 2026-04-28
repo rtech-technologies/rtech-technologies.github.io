@@ -1,8 +1,3 @@
-Understood. We're keeping the focus purely on the **RTECH** mission: hardware sovereignty, the right to mod, and the 2026 roadmap. I have removed the anti-corporate rhetoric to focus on the positive "Sovereign Industrial" identity and added the official contact point.
-
-### RTECH | Sovereign Industrial Root (`index.html`)
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +9,13 @@ Understood. We're keeping the focus purely on the **RTECH** mission: hardware so
     <style>
         :root { --lime: #a3e635; --zinc-950: #09090b; }
         * { border-radius: 0 !important; font-family: 'JetBrains Mono', monospace; }
-        body { background: var(--zinc-950); color: #fff; line-height: 1.2; }
+        *:focus-visible { outline: 2px solid var(--lime) !important; outline-offset: 2px; }
+        body { background: var(--zinc-950); color: #fff; line-height: 1.2; scroll-behavior: smooth; }
         
         .industrial-border { border: 2px solid #27272a; }
         .license-box { background: #000; border: 1px solid #3f3f46; position: relative; }
         
-        .nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #71717a; transition: all 0.2s; }
+        .nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #a1a1aa; transition: all 0.2s; }
         .nav-link:hover { color: #fff; border-bottom: 2px solid var(--lime); }
         
         .roadmap-card { border-left: 2px solid #3f3f46; transition: all 0.3s ease; }
@@ -27,6 +23,9 @@ Understood. We're keeping the focus purely on the **RTECH** mission: hardware so
     </style>
 </head>
 <body class="selection:bg-lime-500 selection:text-black">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-lime-500 focus:text-black focus:px-4 focus:py-2 focus:font-black focus:uppercase focus:text-xs">
+        Skip to content
+    </a>
 
     <nav class="border-b-2 border-white bg-black sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
@@ -46,7 +45,7 @@ Understood. We're keeping the focus purely on the **RTECH** mission: hardware so
         </div>
     </nav>
 
-    <main>
+    <main id="main-content" tabindex="-1" class="focus:outline-none">
         <section class="relative pt-32 pb-32 px-6 border-b border-zinc-900 overflow-hidden">
             <div class="max-w-7xl mx-auto relative z-10">
                 <div class="bg-white text-black inline-block px-3 py-1 text-[10px] font-black uppercase mb-6 italic">Property Standards Verified</div>
@@ -76,7 +75,7 @@ Understood. We're keeping the focus purely on the **RTECH** mission: hardware so
                 </div>
                 <div class="industrial-border p-12 bg-zinc-900/50">
                     <h4 class="text-white font-black mb-6 uppercase tracking-widest italic">Hardware Identity</h4>
-                    <p class="text-[10px] text-zinc-500 font-bold uppercase mb-8">RTECH is currently focused on core silicon and workstation nodes. Mobile form factors are currently in research.</p>
+                    <p class="text-[10px] text-zinc-400 font-bold uppercase mb-8">RTECH is currently focused on core silicon and workstation nodes. Mobile form factors are currently in research.</p>
                     <div class="space-y-4 text-xs font-bold uppercase">
                         <div class="flex justify-between border-b border-zinc-800 pb-2"><span>Logic Style:</span> <span>One-Line_Step</span></div>
                         <div class="flex justify-between border-b border-zinc-800 pb-2"><span>User State:</span> <span class="text-lime-500 font-black">ROOT_SOVEREIGN</span></div>
@@ -91,11 +90,11 @@ Understood. We're keeping the focus purely on the **RTECH** mission: hardware so
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="roadmap-card p-10">
                         <h4 class="text-xl font-black uppercase italic mb-4">The R1 Node</h4>
-                        <p class="text-xs font-bold uppercase text-zinc-500 leading-relaxed">The primary desktop architecture. Designed for direct OS*2 integration and high-performance modding environments.</p>
+                        <p class="text-xs font-bold uppercase text-zinc-400 leading-relaxed">The primary desktop architecture. Designed for direct OS*2 integration and high-performance modding environments.</p>
                     </div>
                     <div class="roadmap-card p-10">
                         <h4 class="text-xl font-black uppercase italic mb-4">Sovereign Server Units</h4>
-                        <p class="text-xs font-bold uppercase text-zinc-500 leading-relaxed">Scaling property rights to the rack. High-density compute nodes with zero remote management backdoors.</p>
+                        <p class="text-xs font-bold uppercase text-zinc-400 leading-relaxed">Scaling property rights to the rack. High-density compute nodes with zero remote management backdoors.</p>
                     </div>
                 </div>
             </div>
@@ -133,7 +132,7 @@ Understood. We're keeping the focus purely on the **RTECH** mission: hardware so
         <section class="py-40 px-6 text-center">
             <h2 class="text-4xl font-black uppercase italic mb-8">Direct Technical Interface.</h2>
             <div class="mb-12">
-                <p class="text-zinc-500 font-bold uppercase text-xs mb-4">Inquiries / Commercial Registration:</p>
+                <p class="text-zinc-400 font-bold uppercase text-xs mb-4">Inquiries / Commercial Registration:</p>
                 <a href="mailto:richardwojc@gmail.com" class="text-2xl font-black text-white hover:text-lime-500 transition-colors">richardwojc@gmail.com</a>
             </div>
             <a href="os2.html" class="inline-block border-2 border-white px-16 py-6 font-black text-xl uppercase hover:bg-lime-500 hover:text-black transition-all">
@@ -142,11 +141,10 @@ Understood. We're keeping the focus purely on the **RTECH** mission: hardware so
         </section>
     </main>
 
-    <footer class="p-12 border-t-2 border-white bg-black flex justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600">
+    <footer class="p-12 border-t-2 border-white bg-black flex justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400">
         <div>RTECH-TECHNOLOGIES // &copy; 2026</div>
         <div class="italic">Respect People's Property.</div>
     </footer>
 
 </body>
 </html>
-```
