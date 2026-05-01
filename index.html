@@ -15,11 +15,14 @@
         .industrial-border { border: 2px solid #27272a; }
         .license-box { background: #000; border: 1px solid #3f3f46; position: relative; }
         
-        .nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #a1a1aa; transition: all 0.2s; }
-        .nav-link:hover { color: #fff; border-bottom: 2px solid var(--lime); }
+        .nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #a1a1aa; transition: all 0.2s; border-bottom: 2px solid transparent; }
+        .nav-link:hover { color: #fff; border-bottom-color: var(--lime); }
         
         .roadmap-card { border-left: 2px solid #3f3f46; transition: all 0.3s ease; }
         .roadmap-card:hover { border-left-color: var(--lime); background: #111113; }
+
+        .terminal-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
 </head>
 <body class="selection:bg-lime-500 selection:text-black">
@@ -30,7 +33,7 @@
     <nav class="border-b-2 border-white bg-black sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
             <div class="flex items-center gap-12">
-                <div class="font-black text-3xl tracking-tighter uppercase italic">RTECH<span class="text-lime-500">_</span></div>
+                <a href="index.html" class="font-black text-3xl tracking-tighter uppercase italic">RTECH<span class="text-lime-500 terminal-blink">_</span></a>
                 <div class="hidden lg:flex gap-10">
                     <a href="#modding" class="nav-link">/Modding</a>
                     <a href="#roadmap" class="nav-link">/Roadmap</a>
