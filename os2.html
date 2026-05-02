@@ -33,6 +33,10 @@
         .code-window::before { content: "TERMINAL_FEED"; position: absolute; top: -10px; left: 20px; background: #000; padding: 0 10px; font-size: 10px; color: var(--lime); font-weight: 800; }
         
         .warning-box { background: rgba(79, 70, 229, 0.05); border-left: 4px solid #6366f1; padding: 2rem; }
+        .nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #a1a1aa; transition: all 0.2s; border-bottom: 2px solid transparent; }
+        .nav-link:hover { color: #fff; border-bottom-color: var(--lime); }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .terminal-blink { animation: blink 1s step-end infinite; }
     </style>
 </head>
 <body class="selection:bg-lime-500 selection:text-black">
@@ -43,11 +47,11 @@
     <nav class="border-b border-slate-800 bg-slate-950/90 backdrop-blur-xl sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
             <div class="flex items-center gap-12">
-                <a href="index.html" class="font-black text-2xl tracking-tighter hover:text-lime-500 transition-colors uppercase">RTECH</a>
-                <div class="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-                    <a href="#about" class="hover:text-white">Specs</a>
-                    <a href="#testing" class="hover:text-white">VM_Guidance</a>
-                    <a href="#deployment" class="text-lime-500 underline underline-offset-8">Deployment</a>
+                <a href="index.html" class="font-black text-3xl tracking-tighter uppercase italic">RTECH<span class="text-lime-500 terminal-blink">_</span></a>
+                <div class="hidden lg:flex gap-10">
+                    <a href="#about" class="nav-link">/Specs</a>
+                    <a href="#testing" class="nav-link">/VM_Guidance</a>
+                    <a href="#deployment" class="nav-link">/Deployment</a>
                 </div>
             </div>
             <div class="text-[10px] font-black uppercase px-4 py-1.5 border border-slate-700 bg-slate-900">VER: 2026.04</div>
@@ -85,6 +89,7 @@
                     </div>
                 </div>
                 <div class="code-window">
+                    <button onclick="copyCode(this)" class="absolute top-4 right-4 text-[10px] font-black uppercase bg-zinc-800 px-3 py-1 hover:bg-lime-500 hover:text-black transition-colors">Copy</button>
                     <pre class="text-lime-500 text-xs leading-loose">
 ; OS*2 SYSTEM_INIT
 move rdi 10          ; ALLOC_SOVEREIGNTY
@@ -170,7 +175,41 @@ out 0x80, zest       ; DISPLAY_ACTIVE
                 status.innerText = "Status: Mirror_Sync_In_Progress";
             }
         }
-        window.onload = checkAvailability;
+        checkAvailability();
+
+        function copyCode(btn) {
+            const pre = btn.nextElementSibling;
+            const text = pre.innerText;
+
+            // Fallback for non-https environments if navigator.clipboard is unavailable
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    updateButton(btn);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    updateButton(btn);
+                } catch (err) {
+                    console.error('Fallback copy failed', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        function updateButton(btn) {
+            const originalText = btn.innerText;
+            btn.innerText = "Copied!";
+            btn.classList.add('bg-lime-500', 'text-black');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-lime-500', 'text-black');
+            }, 2000);
+        }
     </script>
 </body>
 </html>
