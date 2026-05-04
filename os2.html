@@ -18,6 +18,8 @@
             display: inline-block; margin-right: 12px; animation: pulse 2s infinite;
         }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .terminal-blink { animation: blink 1s step-end infinite; }
         
         #download-btn {
             font-weight: 800; padding: 20px 48px; transition: all 0.3s ease;
@@ -33,6 +35,9 @@
         .code-window::before { content: "TERMINAL_FEED"; position: absolute; top: -10px; left: 20px; background: #000; padding: 0 10px; font-size: 10px; color: var(--lime); font-weight: 800; }
         
         .warning-box { background: rgba(79, 70, 229, 0.05); border-left: 4px solid #6366f1; padding: 2rem; }
+        .tutorial-active .tutorial-highlight { color: var(--lime); text-decoration: underline dashed; cursor: help; }
+        .tutorial-note { display: none; }
+        .tutorial-active .tutorial-note { display: block; font-size: 10px; color: #94a3b8; margin-top: 4px; text-transform: uppercase; font-weight: 800; }
     </style>
 </head>
 <body class="selection:bg-lime-500 selection:text-black">
@@ -43,14 +48,22 @@
     <nav class="border-b border-slate-800 bg-slate-950/90 backdrop-blur-xl sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
             <div class="flex items-center gap-12">
-                <a href="index.html" class="font-black text-2xl tracking-tighter hover:text-lime-500 transition-colors uppercase">RTECH</a>
+                <a href="index.html" class="font-black text-3xl tracking-tighter italic uppercase hover:text-lime-500 transition-colors">RTECH<span class="text-lime-500 terminal-blink">_</span></a>
                 <div class="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-                    <a href="#about" class="hover:text-white">Specs</a>
-                    <a href="#testing" class="hover:text-white">VM_Guidance</a>
-                    <a href="#deployment" class="text-lime-500 underline underline-offset-8">Deployment</a>
+                    <a href="#about" class="hover:text-white transition-all border-b-2 border-transparent hover:border-lime-500">/Specs</a>
+                    <a href="#testing" class="hover:text-white transition-all border-b-2 border-transparent hover:border-lime-500">/VM_Guidance</a>
+                    <a href="#deployment" class="hover:text-white transition-all border-b-2 border-transparent hover:border-lime-500">/Deployment</a>
+                    <button onclick="toggleTutorial(this)" class="hover:text-white transition-all border-b-2 border-transparent hover:border-lime-500" aria-label="Toggle Tutorial Mode" aria-pressed="false">/Tutorial</button>
+                    <a href="#" class="hover:text-white transition-all border-b-2 border-transparent hover:border-lime-500 opacity-50">/Portal</a>
                 </div>
             </div>
-            <div class="text-[10px] font-black uppercase px-4 py-1.5 border border-slate-700 bg-slate-900">VER: 2026.04</div>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex items-center gap-2 px-3 py-1 border border-slate-800 bg-slate-900/50">
+                    <div class="w-1.5 h-1.5 bg-lime-500 terminal-blink"></div>
+                    <span class="text-[8px] font-black uppercase tracking-widest text-slate-400">Node_Status: ONLINE</span>
+                </div>
+                <div class="text-[10px] font-black uppercase px-4 py-1.5 border border-slate-700 bg-slate-900">VER: 2026.04</div>
+            </div>
         </div>
     </nav>
 
@@ -69,9 +82,10 @@
             <h2 class="text-xs font-black uppercase tracking-[0.6em] text-lime-500 mb-12 italic">// 01_SYSTEM_OVERVIEW</h2>
             <div class="grid lg:grid-cols-2 gap-16">
                 <div>
-                    <h3 class="text-4xl font-black uppercase italic mb-8">One Line, One Step.</h3>
+                    <h3 class="text-4xl font-black uppercase italic mb-8"><span class="tutorial-highlight">One Line, One Step.</span></h3>
+                    <div class="tutorial-note mb-4">// Logic: 1 Assembly Line = 1 System Operation.</div>
                     <p class="text-slate-400 mb-8 font-bold uppercase text-sm leading-relaxed">
-                        OS*2 is the first "Pure Metal" OS of 2026. Every system operation is mapped to a single line of assembly code. This ensures 100% transparency; there is no place for hidden telemetry or backdoors to hide in the logic.
+                        OS*2 is the first <span class="tutorial-highlight">"Pure Metal"</span> OS of 2026. Every system operation is mapped to a single line of assembly code. This ensures 100% transparency; there is no place for hidden telemetry or backdoors to hide in the logic.
                     </p>
                     <div class="space-y-6">
                         <div class="enterprise-border p-6">
@@ -79,7 +93,8 @@
                             <p class="text-[11px] text-slate-400 uppercase font-bold">The OS is your property. RTECH cannot remote-wipe, update without consent, or access your local file table.</p>
                         </div>
                         <div class="enterprise-border p-6">
-                            <h4 class="text-lime-500 font-black text-xs uppercase mb-2">The Zest UI</h4>
+                            <h4 class="text-lime-500 font-black text-xs uppercase mb-2"><span class="tutorial-highlight">The Zest UI</span></h4>
+                            <div class="tutorial-note mb-2">// UX: Zero-latency, high-contrast industrial theme.</div>
                             <p class="text-[11px] text-slate-400 uppercase font-bold">High-contrast, zero-latency interface designed for aggressive decorators and heavy industry.</p>
                         </div>
                     </div>
@@ -127,11 +142,16 @@ out 0x80, zest       ; DISPLAY_ACTIVE
                     <button id="download-btn" class="btn-pending">
                         Initializing...
                     </button>
+                    <div class="mt-6 p-4 border border-slate-800 bg-slate-900/30">
+                        <div class="text-[10px] font-black text-slate-500 uppercase mb-2 tracking-widest">Enterprise_Checksum_Verification</div>
+                        <code class="text-[10px] text-slate-400 break-all">SHA256: 7e2a9b4c3d1f8a5e0b9c2d4e6f8a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7</code>
+                    </div>
                 </div>
                 <div class="bg-black p-8 border border-slate-800">
                     <h4 class="text-[10px] font-black text-slate-400 uppercase mb-6 tracking-widest">Staging_Inventory</h4>
                     <ul class="text-[10px] font-bold uppercase space-y-4 text-slate-400">
                         <li class="flex justify-between border-b border-slate-900 pb-2"><span>Architecture:</span> <span class="text-white">x86_64_R1</span></li>
+                        <li class="flex justify-between border-b border-slate-900 pb-2"><span>Distribution:</span> <span class="text-lime-500">Enterprise_Node_Alpha</span></li>
                         <li class="flex justify-between border-b border-slate-900 pb-2"><span>Environment:</span> <span class="text-white">VMware_Ready</span></li>
                         <li class="flex justify-between border-b border-slate-900 pb-2"><span>Build_Status:</span> <span class="text-indigo-400 italic">Pre-Stable</span></li>
                     </ul>
@@ -141,13 +161,26 @@ out 0x80, zest       ; DISPLAY_ACTIVE
     </main>
 
     <footer class="border-t border-slate-900 py-16 px-6 mt-32 bg-black">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">
-            <span>RTECH_CORPORATE // 2026 // ISO_DEPLOYMENT_STATION</span>
-            <span class="mt-4 md:mt-0 italic">Respecting User Property Since 2024.</span>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.5em] text-slate-400 gap-8">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <span>RTECH_CORPORATE // 2026</span>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">/Security</a>
+                    <a href="#" class="hover:text-white transition-colors">/Legal</a>
+                </div>
+            </div>
+            <span class="italic">Respecting User Property Since 2024.</span>
         </div>
     </footer>
 
     <script>
+        function toggleTutorial(btn) {
+            const active = document.body.classList.toggle('tutorial-active');
+            btn.setAttribute('aria-pressed', active);
+            btn.classList.toggle('text-lime-500', active);
+            btn.classList.toggle('border-lime-500', active);
+        }
+
         async function checkAvailability() {
             const btn = document.getElementById('download-btn');
             const status = document.getElementById('system-status');
