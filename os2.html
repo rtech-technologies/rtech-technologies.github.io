@@ -84,8 +84,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="code-window">
-                    <pre class="text-lime-500 text-xs leading-loose">
+                <div class="code-window group">
+                    <button
+                        onclick="copyCode(this)"
+                        aria-label="Copy code to clipboard"
+                        class="absolute top-4 right-4 p-2 bg-slate-900 border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800 opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all duration-200 flex items-center gap-2"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        <span class="text-[10px] font-black uppercase tracking-widest">Copy</span>
+                    </button>
+                    <pre id="system-init-code" class="text-lime-500 text-xs leading-loose">
 ; OS*2 SYSTEM_INIT
 move rdi 10          ; ALLOC_SOVEREIGNTY
 push rdi             ; SECURE_REGISTER
@@ -148,6 +156,30 @@ out 0x80, zest       ; DISPLAY_ACTIVE
     </footer>
 
     <script>
+        function copyCode(btn) {
+            const code = document.getElementById('system-init-code').innerText;
+            const originalContent = btn.innerHTML;
+            const fallbackCopy = (text) => {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                document.body.appendChild(textArea);
+                textArea.select();
+                try { document.execCommand('copy'); } catch (err) {}
+                textArea.remove();
+            };
+
+            (navigator.clipboard && window.isSecureContext ? navigator.clipboard.writeText(code) : Promise.resolve().then(() => fallbackCopy(code)))
+            .then(() => {
+                btn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-lime-500"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-lime-500">Copied!</span>
+                `;
+                setTimeout(() => btn.innerHTML = originalContent, 2000);
+            });
+        }
+
         async function checkAvailability() {
             const btn = document.getElementById('download-btn');
             const status = document.getElementById('system-status');
