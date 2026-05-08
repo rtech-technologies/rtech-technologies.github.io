@@ -1,0 +1,3 @@
+## 2026-05-22 - Code Block Copy Utility
+**Learning:** For terminal-inspired UIs, code block interaction is a high-value micro-UX. Using Tailwind's `group` and `group-hover` allows for a clean default UI that stays interactive. Providing immediate visual feedback (text change + color swap) is more effective than a passive "toast" notification in this aesthetic.
+**Action:** Use `opacity-0 group-hover:opacity-100 focus:opacity-100` for contextual actions. Always provide a fallback for `navigator.clipboard` using a temporary `textarea` and `execCommand('copy')` to ensure reliability in all environments.
