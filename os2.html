@@ -84,8 +84,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="code-window">
-                    <pre class="text-lime-500 text-xs leading-loose">
+                <div class="code-window group">
+                    <button
+                        onclick="copyToClipboard(this)"
+                        class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity bg-slate-900 border border-slate-700 text-slate-400 hover:text-white px-3 py-1 text-[10px] font-black uppercase tracking-widest z-10"
+                        aria-label="Copy code to clipboard"
+                    >
+                        Copy
+                    </button>
+                    <pre id="code-snippet" class="text-lime-500 text-xs leading-loose">
 ; OS*2 SYSTEM_INIT
 move rdi 10          ; ALLOC_SOVEREIGNTY
 push rdi             ; SECURE_REGISTER
@@ -148,6 +155,36 @@ out 0x80, zest       ; DISPLAY_ACTIVE
     </footer>
 
     <script>
+        function copyToClipboard(btn) {
+            const code = document.getElementById('code-snippet').innerText.trim();
+            const originalText = btn.innerText;
+
+            const handleSuccess = () => {
+                btn.innerText = 'Copied!';
+                btn.classList.add('!bg-lime-500', '!text-black', '!border-lime-500');
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('!bg-lime-500', '!text-black', '!border-lime-500');
+                }, 2000);
+            };
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(code).then(handleSuccess);
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = code;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    handleSuccess();
+                } catch (err) {
+                    console.error('Fallback copy failed', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
         async function checkAvailability() {
             const btn = document.getElementById('download-btn');
             const status = document.getElementById('system-status');
