@@ -84,7 +84,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="code-window">
+                <div class="code-window group">
+                    <button
+                        onclick="copyCode(this)"
+                        aria-label="Copy code snippet"
+                        class="absolute top-4 right-4 px-3 py-1 text-[10px] font-black uppercase bg-slate-900 text-slate-400 border border-slate-800 opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all hover:bg-lime-500 hover:text-black hover:border-lime-500"
+                    >
+                        Copy
+                    </button>
                     <pre class="text-lime-500 text-xs leading-loose">
 ; OS*2 SYSTEM_INIT
 move rdi 10          ; ALLOC_SOVEREIGNTY
@@ -148,6 +155,43 @@ out 0x80, zest       ; DISPLAY_ACTIVE
     </footer>
 
     <script>
+        function copyCode(btn) {
+            const code = btn.nextElementSibling.innerText.trim();
+            const originalText = btn.innerText;
+            const originalLabel = btn.getAttribute('aria-label');
+
+            function showFeedback() {
+                btn.innerText = 'COPIED!';
+                btn.setAttribute('aria-label', "Code copied successfully");
+                btn.classList.add('!bg-lime-500', '!text-black', '!border-lime-500');
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.setAttribute('aria-label', originalLabel);
+                    btn.classList.remove('!bg-lime-500', '!text-black', '!border-lime-500');
+                }, 2000);
+            }
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(code).then(showFeedback);
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = code;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-9999px";
+                textArea.style.top = "0";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showFeedback();
+                } catch (err) {
+                    console.error('Fallback copy failed', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
         async function checkAvailability() {
             const btn = document.getElementById('download-btn');
             const status = document.getElementById('system-status');
