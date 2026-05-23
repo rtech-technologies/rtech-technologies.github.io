@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTECH | HEX_CONVERTER_PROTOCOL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --lime: #a3e635; --zinc-950: #09090b; }
+        * { border-radius: 0 !important; font-family: 'JetBrains Mono', monospace; }
+        *:focus-visible { outline: 2px solid var(--lime) !important; outline-offset: 2px; }
+        body { background: var(--zinc-950); color: #fff; line-height: 1.2; scroll-behavior: smooth; }
+
+        .industrial-border { border: 2px solid #27272a; }
+        .nav-link { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #a1a1aa; transition: all 0.2s; border-bottom: 2px solid transparent; }
+        .nav-link:hover { color: #fff; border-bottom: 2px solid var(--lime); }
+
+        .converter-box { background: #000; border: 1px solid #3f3f46; position: relative; }
+        .converter-box::before { content: attr(data-label); position: absolute; top: -10px; left: 20px; background: #000; padding: 0 10px; font-size: 10px; color: var(--lime); font-weight: 800; }
+
+        textarea { background: #050505; color: var(--lime); border: 1px solid #27272a; padding: 1rem; font-size: 12px; resize: none; width: 100%; height: 200px; }
+        textarea:focus { outline: none; border-color: var(--lime); }
+
+        canvas { image-rendering: pixelated; border: 1px solid #27272a; background: #000; max-width: 100%; height: auto; }
+    </style>
+</head>
+<body class="selection:bg-lime-500 selection:text-black">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-lime-500 focus:text-black focus:px-4 focus:py-2 focus:font-black focus:uppercase focus:text-xs">
+        Skip to content
+    </a>
+
+    <nav class="border-b-2 border-white bg-black sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
+            <div class="flex items-center gap-12">
+                <a href="index.html" class="font-black text-3xl tracking-tighter uppercase italic">RTECH<span class="text-lime-500">_</span></a>
+                <div class="hidden lg:flex gap-10">
+                    <a href="index.html#modding" class="nav-link">/Modding</a>
+                    <a href="index.html#roadmap" class="nav-link">/Roadmap</a>
+                    <a href="index.html#license" class="nav-link">/License</a>
+                    <a href="converter.html" class="nav-link !border-lime-500">/Converter</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="os2.html" class="bg-lime-500 text-black px-8 py-2 text-xs font-black uppercase hover:bg-white transition-all">
+                    GET_OS*2
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" tabindex="-1" class="max-w-7xl mx-auto px-6 py-24 focus:outline-none">
+        <header class="mb-20">
+            <h1 class="text-6xl font-black uppercase italic mb-6 tracking-tighter">
+                HEX_DATA_<span class="text-lime-500">TRANSCODER</span>
+            </h1>
+            <p class="text-zinc-400 font-bold uppercase text-sm tracking-widest italic">
+                Direct pixel-to-hex serialization protocol for OS*2 terminal assets.
+            </p>
+        </header>
+
+        <div class="grid lg:grid-cols-2 gap-16">
+            <!-- Image to Hex -->
+            <section>
+                <div class="converter-box p-8" data-label="IMAGE_TO_HEX_STREAM">
+                    <div class="mb-6">
+                        <label class="block text-[10px] font-black uppercase text-zinc-500 mb-2">Source Image (PNG/JPG)</label>
+                        <input type="file" id="imageInput" accept="image/*" class="w-full text-xs font-bold uppercase text-zinc-400 file:mr-4 file:py-2 file:px-4 file:border-0 file:text-xs file:font-black file:uppercase file:bg-zinc-800 file:text-white hover:file:bg-lime-500 hover:file:text-black cursor-pointer">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-[10px] font-black uppercase text-zinc-500 mb-2">Preview</label>
+                        <canvas id="sourceCanvas"></canvas>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-[10px] font-black uppercase text-zinc-500">Hex Stream Output</label>
+                            <button onclick="copyOutput(this)" class="text-[10px] font-black uppercase text-lime-500 hover:text-white transition-colors">COPY_DATA</button>
+                        </div>
+                        <textarea id="hexOutput" readonly placeholder="#000000, #FFFFFF..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hex to Image -->
+            <section>
+                <div class="converter-box p-8" data-label="HEX_STREAM_TO_IMAGE">
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-[10px] font-black uppercase text-zinc-500">Hex Stream Input</label>
+                            <div class="flex gap-4">
+                                <button onclick="clearInput()" class="text-[10px] font-black uppercase text-red-500 hover:text-white transition-colors">CLEAR</button>
+                                <button onclick="processHex()" class="text-[10px] font-black uppercase text-lime-500 hover:text-white transition-colors">GENERATE</button>
+                            </div>
+                        </div>
+                        <textarea id="hexInput" placeholder="Enter hex codes separated by commas or spaces (e.g. #FF0000, #00FF00, #0000FF)"></textarea>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-[10px] font-black uppercase text-zinc-500 mb-2">Width (px)</label>
+                        <input type="number" id="targetWidth" value="16" class="bg-zinc-900 border border-zinc-800 p-2 text-xs font-black text-white w-24">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-zinc-500 mb-2">Reconstructed Output</label>
+                        <canvas id="targetCanvas"></canvas>
+                        <div class="mt-4">
+                            <button id="downloadBtn" style="display:none" onclick="downloadImage()" class="bg-white text-black px-6 py-2 text-[10px] font-black uppercase hover:bg-lime-500 transition-all">DOWNLOAD_PNG</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="p-12 border-t-2 border-white bg-black mt-24 flex justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400">
+        <div>RTECH-TECHNOLOGIES // &copy; 2026</div>
+        <div class="italic">Respect People's Property.</div>
+    </footer>
+
+    <script>
+        /**
+         * IMAGE_TO_HEX_PROTOCOL
+         * Extracts pixel data from an uploaded image and serializes it to hex strings.
+         * Optimized by downscaling large images to maintain terminal-style resolution and performance.
+         */
+        const imageInput = document.getElementById('imageInput');
+        const sourceCanvas = document.getElementById('sourceCanvas');
+        const hexOutput = document.getElementById('hexOutput');
+        const sCtx = sourceCanvas.getContext('2d');
+
+        imageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const img = new Image();
+                img.onload = function() {
+                    // Limit size for reasonable hex output
+                    let w = img.width;
+                    let h = img.height;
+                    const max = 64;
+                    if (w > max || h > max) {
+                        if (w > h) {
+                            h = Math.round((h * max) / w);
+                            w = max;
+                        } else {
+                            w = Math.round((w * max) / h);
+                            h = max;
+                        }
+                    }
+
+                    sourceCanvas.width = w;
+                    sourceCanvas.height = h;
+                    sCtx.drawImage(img, 0, 0, w, h);
+
+                    const imageData = sCtx.getImageData(0, 0, w, h).data;
+                    let hexStrings = [];
+                    for (let i = 0; i < imageData.length; i += 4) {
+                        const r = imageData[i].toString(16).padStart(2, '0');
+                        const g = imageData[i+1].toString(16).padStart(2, '0');
+                        const b = imageData[i+2].toString(16).padStart(2, '0');
+                        hexStrings.push(`#${r}${g}${b}`.toUpperCase());
+                    }
+                    hexOutput.value = hexStrings.join(', ');
+                };
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        function copyOutput(btn) {
+            hexOutput.select();
+            try {
+                navigator.clipboard.writeText(hexOutput.value);
+            } catch (err) {
+                document.execCommand('copy');
+            }
+            const originalText = btn.innerText;
+            btn.innerText = 'COPIED!';
+            setTimeout(() => btn.innerText = originalText, 2000);
+        }
+
+        /**
+         * HEX_TO_IMAGE_PROTOCOL
+         * Reconstructs an image from a stream of hex codes.
+         * Uses direct canvas manipulation for zero-latency reconstruction.
+         */
+        const hexInput = document.getElementById('hexInput');
+        const targetCanvas = document.getElementById('targetCanvas');
+        const targetWidthInput = document.getElementById('targetWidth');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const tCtx = targetCanvas.getContext('2d');
+
+        function processHex() {
+            const input = hexInput.value.trim();
+            if (!input) return;
+
+            const hexCodes = input.split(/[\s,]+/).filter(h => h.startsWith('#') || h.length === 6);
+            if (hexCodes.length === 0) return;
+
+            const width = parseInt(targetWidthInput.value) || 16;
+            const height = Math.ceil(hexCodes.length / width);
+
+            targetCanvas.width = width;
+            targetCanvas.height = height;
+
+            hexCodes.forEach((hex, i) => {
+                const x = i % width;
+                const y = Math.floor(i / width);
+                tCtx.fillStyle = hex.startsWith('#') ? hex : `#${hex}`;
+                tCtx.fillRect(x, y, 1, 1);
+            });
+
+            downloadBtn.style.display = 'inline-block';
+        }
+
+        function clearInput() {
+            hexInput.value = '';
+            targetCanvas.width = 0;
+            targetCanvas.height = 0;
+            downloadBtn.style.display = 'none';
+        }
+
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.download = 'rtech_reconstructed.png';
+            link.href = targetCanvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html>
