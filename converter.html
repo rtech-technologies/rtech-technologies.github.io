@@ -83,6 +83,20 @@
                 </div>
             </section>
 
+            <!-- C Source Export -->
+            <section class="lg:col-span-2">
+                <div class="converter-box p-8" data-label="C_SOURCE_EXPORT_PROTOCOL">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h4 class="text-white font-black text-xs uppercase mb-1">Boot Image Source</h4>
+                            <p class="text-[10px] text-zinc-500 uppercase font-bold italic">Freestanding C logic for OS*2 boot customization.</p>
+                        </div>
+                        <button onclick="copyCCode(this)" class="text-[10px] font-black uppercase text-lime-500 hover:text-white transition-colors">COPY_SOURCE</button>
+                    </div>
+                    <textarea id="cOutput" readonly class="h-64 font-mono text-[10px]" placeholder="/* Generated C Source will appear here after image upload */"></textarea>
+                </div>
+            </section>
+
             <!-- Hex to Image -->
             <section>
                 <div class="converter-box p-8" data-label="HEX_STREAM_TO_IMAGE">
@@ -164,7 +178,9 @@
                         const b = imageData[i+2].toString(16).padStart(2, '0');
                         hexStrings.push(`#${r}${g}${b}`.toUpperCase());
                     }
-                    hexOutput.value = hexStrings.join(', ');
+                    const hexData = hexStrings.join(', ');
+                    hexOutput.value = hexData;
+                    generateCCode(w, h, hexStrings);
                 };
                 img.src = event.target.result;
             };
@@ -175,6 +191,51 @@
             hexOutput.select();
             try {
                 navigator.clipboard.writeText(hexOutput.value);
+            } catch (err) {
+                document.execCommand('copy');
+            }
+            const originalText = btn.innerText;
+            btn.innerText = 'COPIED!';
+            setTimeout(() => btn.innerText = originalText, 2000);
+        }
+
+        function generateCCode(w, h, hexArray) {
+            const cOutput = document.getElementById('cOutput');
+            const sanitizedHex = hexArray.map(h => '0xff' + h.substring(1)); // Add alpha FF for 32-bit colors
+
+            let cSource = `/**\n * RTECH OS*2 BOOT_IMAGE_SPEC\n * Generated: ${new Date().toISOString()}\n */\n\n`;
+            cSource += `#include <stdint.h>\n\n`;
+            cSource += `#define BOOT_LOGO_WIDTH  ${w}\n`;
+            cSource += `#define BOOT_LOGO_HEIGHT ${h}\n\n`;
+            cSource += `/* ARGB8888 Pixel Data */\n`;
+            cSource += `static const uint32_t boot_logo_data[] = {\n    `;
+
+            for (let i = 0; i < sanitizedHex.length; i++) {
+                cSource += sanitizedHex[i] + (i === sanitizedHex.length - 1 ? "" : ", ");
+                if ((i + 1) % 6 === 0 && i !== sanitizedHex.length - 1) {
+                    cSource += "\n    ";
+                }
+            }
+
+            cSource += `\n};\n\n`;
+            cSource += `/**\n * Freestanding drawing routine for OS*2 Kernel initialization.\n * Centers the logo on screen.\n */\n`;
+            cSource += `void draw_boot_logo(uint32_t* fb, int screen_w, int screen_h) {\n`;
+            cSource += `    int start_x = (screen_w - BOOT_LOGO_WIDTH) / 2;\n`;
+            cSource += `    int start_y = (screen_h - BOOT_LOGO_HEIGHT) / 2;\n\n`;
+            cSource += `    for (int y = 0; y < BOOT_LOGO_HEIGHT; y++) {\n`;
+            cSource += `        for (int x = 0; x < BOOT_LOGO_WIDTH; x++) {\n`;
+            cSource += `            uint32_t color = boot_logo_data[y * BOOT_LOGO_WIDTH + x];\n`;
+            cSource += `            fb[(start_y + y) * screen_w + (start_x + x)] = color;\n`;
+            cSource += `        }\n    }\n}\n`;
+
+            cOutput.value = cSource;
+        }
+
+        function copyCCode(btn) {
+            const cOutput = document.getElementById('cOutput');
+            cOutput.select();
+            try {
+                navigator.clipboard.writeText(cOutput.value);
             } catch (err) {
                 document.execCommand('copy');
             }
