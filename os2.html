@@ -110,7 +110,7 @@
             <div class="status-badge mb-6">Technical Preview</div>
             <h1 class="text-5xl font-extrabold tracking-tight mb-6">OS*2 Infrastructure</h1>
             <p class="text-zinc-400 max-w-2xl text-lg leading-relaxed">
-                The sovereign kernel designed for R1 hardware. Built with transparency at its core, enabling direct silicon interaction without corporate gatekeeping.
+                The secure kernel designed for R1 hardware. Built with transparency at its core, enabling direct hardware interaction with professional-grade security.
             </p>
         </header>
 
@@ -124,12 +124,12 @@
 
                     <div class="space-y-4">
                         <div class="card p-6">
-                            <h4 class="font-bold text-blue-400 mb-2">Direct Silicon Link</h4>
-                            <p class="text-sm text-zinc-400">Low-level assembly mapping ensures every cycle is accounted for and verifiable.</p>
+                            <h4 class="font-bold text-blue-400 mb-2">Direct Hardware Link</h4>
+                            <p class="text-sm text-zinc-400">Low-level optimization ensures every cycle is accounted for and verifiable.</p>
                         </div>
                         <div class="card p-6">
-                            <h4 class="font-bold text-blue-400 mb-2">User-Centric Policy</h4>
-                            <p class="text-sm text-zinc-400">The kernel respects user property. No remote telemetry, no forced updates, no exceptions.</p>
+                            <h4 class="font-bold text-blue-400 mb-2">User-Centric Security</h4>
+                            <p class="text-sm text-zinc-400">The kernel respects user property. No remote telemetry, no forced updates, no unauthorized access.</p>
                         </div>
                     </div>
                 </div>
@@ -144,8 +144,8 @@
 global _start
 
 _start:
-    mov rdi, 1          ; Privilege: Sovereign
-    call set_owner      ; Lock hardware to user
+    mov rdi, 1          ; Privilege: Admin
+    call set_owner      ; Verify user ownership
     jmp kernel_main     ; Enter secure state
                     </pre>
                 </div>
