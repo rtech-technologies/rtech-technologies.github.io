@@ -8,36 +8,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --azure-blue: #00a8a8;
-            --bg-deep: #010409;
-            --bg-card: #0d1117;
-            --border-color: #30363d;
-            --text-main: #e6edf3;
-            --text-muted: #8b949e;
+            --azure-blue: #0078d4;
+            --bg-deep: #0b0e14;
+            --bg-card: #11151c;
+            --border-color: #21262d;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
         }
         * { font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif; }
         *:focus-visible { outline: 2px solid var(--azure-blue); outline-offset: 4px; }
         body { background: var(--bg-deep); color: var(--text-main); line-height: 1.6; scroll-behavior: smooth; }
         
         .glass-nav {
-            background: rgba(1, 4, 9, 0.8);
-            backdrop-filter: blur(12px);
+            background: rgba(11, 14, 20, 0.7);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
         }
 
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            transition: transform 0.2s, border-color 0.2s;
+            border-radius: 12px;
+            transition: all 0.3s ease;
         }
 
         .btn-primary {
             background: var(--azure-blue);
             color: white;
-            border-radius: 4px;
-            padding: 10px 24px;
-            font-weight: 600;
+            border-radius: 6px;
+            padding: 12px 28px;
+            font-weight: 500;
             transition: all 0.2s;
             display: inline-flex;
             align-items: center;
@@ -45,11 +45,11 @@
         }
         .btn-primary:hover:not(:disabled) {
             background: #106ebe;
-            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);
         }
         .btn-primary:disabled {
-            background: #161b22;
-            color: #484f58;
+            background: #1c2128;
+            color: #4b5563;
             border: 1px solid var(--border-color);
             cursor: not-allowed;
         }
@@ -58,22 +58,21 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             background: rgba(0, 120, 212, 0.1);
             color: var(--azure-blue);
             border: 1px solid rgba(0, 120, 212, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .code-block {
-            background: #000;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 24px;
-            font-family: 'JetBrains Mono', monospace;
-            position: relative;
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
         }
     </style>
 </head>
@@ -98,121 +97,117 @@
         </div>
     </nav>
 
-    <main id="main-content" tabindex="-1" class="max-w-7xl mx-auto px-6 py-20 focus:outline-none">
+    <main id="main-content" tabindex="-1" class="max-w-7xl mx-auto px-6 py-32 focus:outline-none">
         
-        <header class="mb-20">
-            <div class="status-badge mb-6">Early Developer Preview</div>
-            <h1 class="text-5xl font-extrabold tracking-tight mb-6">OS*2 Professional</h1>
-            <p class="text-zinc-400 max-w-2xl text-lg leading-relaxed">
-                The secure workstation OS you actually own. Modernized stability and raw bare-metal performance, completely stripped of corporate agenda and background telemetry.
+        <header class="mb-32">
+            <div class="status-badge mb-8">Early Developer Preview</div>
+            <h1 class="text-6xl font-bold tracking-tight mb-8">OS*2 Professional</h1>
+            <p class="text-gray-400 max-w-3xl text-xl leading-relaxed">
+                A high-performance workstation operating environment built for absolute control. OS*2 is a single-engineer project dedicated to reclaiming hardware from corporate telemetry and bloat.
             </p>
         </header>
 
-        <section id="specs" class="mb-32">
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
-                <div>
-                    <h2 class="text-2xl font-bold mb-6">OS Architecture</h2>
-                    <p class="text-zinc-400 mb-8 leading-relaxed">
-                        OS*2 implements a "Zero-Layer" approach. By mapping system operations directly to hardware logic, I've worked to eliminate the latency and obfuscation found in traditional operating systems.
-                    </p>
-
-                    <div class="space-y-4">
-                        <div class="card p-6">
-                            <h4 class="font-bold text-blue-400 mb-2">Direct Hardware Link</h4>
-                            <p class="text-sm text-zinc-400">Low-level optimization ensures every cycle is accounted for and verifiable.</p>
-                        </div>
-                        <div class="card p-6">
-                            <h4 class="font-bold text-blue-400 mb-2">Private & Secure</h4>
-                            <p class="text-sm text-zinc-400">The kernel respects your privacy. No remote telemetry, no forced updates, and no background tracking.</p>
-                        </div>
+        <section id="specs" class="mb-40">
+            <h2 class="text-3xl font-bold mb-16">Technical Architecture</h2>
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="card p-10 bg-[#0e1117] border-zinc-800">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-8">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                     </div>
+                    <h3 class="text-xl font-bold mb-4">Zero-Layer Logic</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">System operations map directly to hardware logic, eliminating the obfuscation layers present in legacy kernels.</p>
                 </div>
-
-                <div class="code-block">
-                    <div class="text-[10px] uppercase tracking-widest text-zinc-500 mb-4 flex justify-between">
-                        <span>Kernel Initialization</span>
-                        <span>ASM x86_64</span>
+                <div class="card p-10 bg-[#0e1117] border-zinc-800">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-8">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                     </div>
-                    <pre class="text-emerald-500 text-sm leading-relaxed overflow-x-auto">
-; OS*2 Boot Sequence
-global _start
-
-_start:
-    mov rdi, 1          ; Privilege: Admin
-    call set_owner      ; Verify user ownership
-    jmp kernel_main     ; Enter secure state
-                    </pre>
+                    <h3 class="text-xl font-bold mb-4">Atomic Sovereignty</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">No remote telemetry. Every background process is user-verifiable and operates within a strict local-only sandbox.</p>
+                </div>
+                <div class="card p-10 bg-[#0e1117] border-zinc-800">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-8">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Raw Performance</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Optimized scheduler that prioritizes low-latency workstation tasks over background indexing or update services.</p>
                 </div>
             </div>
         </section>
 
-        <section id="deployment" class="pt-20 border-t border-zinc-900">
-            <h2 class="text-2xl font-bold mb-8">Reclaim Your Hardware</h2>
+        <section id="deployment" class="pt-32 border-t border-zinc-900">
+            <h2 class="text-3xl font-bold mb-12">Build Access</h2>
             
-            <div class="grid lg:grid-cols-3 gap-12 items-start">
+            <div class="grid lg:grid-cols-3 gap-16 items-start">
                 <div class="lg:col-span-2">
-                    <div class="card p-8 border-blue-500/20 bg-blue-500/5 mb-8">
-                        <h3 class="text-xl font-bold mb-4">OS*2 Build Access</h3>
-                        <p class="text-zinc-400 mb-8 text-sm leading-relaxed">
-                            Experience 100% of your hardware's potential. No forced accounts, no lock-screen ads, no compromises. Local sovereignty starts here.
+                    <div class="card p-12 bg-blue-500/5 border-blue-500/20 mb-10">
+                        <h3 class="text-2xl font-bold mb-6">OS*2 Early Access</h3>
+                        <p class="text-gray-400 mb-10 text-lg leading-relaxed">
+                            Experience the full potential of your hardware. No forced accounts, no lock-screen advertising, and no compromise on performance.
                         </p>
 
-                        <div class="flex items-center gap-3 mb-10">
+                        <div class="flex items-center gap-4 mb-12 p-4 bg-[#0b0e14] border border-zinc-800 rounded-lg">
                             <span class="flex h-3 w-3 relative">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
                             </span>
-                            <span class="text-sm font-semibold text-emerald-500" id="system-status">Checking Build Integrity...</span>
+                            <span class="text-sm font-medium text-blue-400" id="system-status">Initializing Mirror Protocol...</span>
                         </div>
 
-                        <button id="download-btn" class="btn-primary" disabled>
+                        <button id="download-btn" class="btn-primary w-full sm:w-auto" disabled>
                             Accessing Core Build...
                         </button>
                     </div>
 
-                    <div class="bg-amber-500/10 border border-amber-500/20 rounded-lg p-6 flex gap-4">
-                        <svg class="w-6 h-6 text-amber-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="bg-amber-500/5 border border-amber-500/20 rounded-xl p-8 flex gap-6">
+                        <svg class="w-8 h-8 text-amber-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
                         </svg>
                         <div>
-                            <h4 class="text-amber-500 font-bold text-sm mb-1">Early Preview Advisory</h4>
-                            <p class="text-xs text-amber-500/80 leading-relaxed">
-                                RTECH is a solo project in active development. This build is intended for early adopters and power users. Always back up your files before a bare-metal installation.
+                            <h4 class="text-amber-500 font-bold mb-2">Solo Developer Advisory</h4>
+                            <p class="text-sm text-amber-500/80 leading-relaxed">
+                                This is a single-engineer effort in active development. While stable for most workstation tasks, this build is intended for early adopters. Ensure comprehensive backups before bare-metal installation.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="card p-6">
-                    <h4 class="font-bold mb-6 text-sm uppercase tracking-wider text-zinc-500">Inventory Details</h4>
-                    <ul class="space-y-4">
-                        <li class="flex justify-between items-center py-2 border-b border-zinc-800">
-                            <span class="text-xs text-zinc-400">Architecture</span>
-                            <span class="text-xs font-semibold">x86_64_R1</span>
-                        </li>
-                        <li class="flex justify-between items-center py-2 border-b border-zinc-800">
-                            <span class="text-xs text-zinc-400">Platform</span>
-                            <span class="text-xs font-semibold">Workstation</span>
-                        </li>
-                        <li class="flex justify-between items-center py-2 border-b border-zinc-800">
-                            <span class="text-xs text-zinc-400">Build No.</span>
-                            <span class="text-xs font-semibold text-blue-400">20260421-TP</span>
-                        </li>
-                    </ul>
-                    <div class="mt-8">
-                        <a href="mailto:richardwojc@gmail.com" class="text-xs text-blue-500 hover:underline">Get Direct Developer Access →</a>
+                <div class="card p-10 bg-[#0e1117] border-zinc-800">
+                    <h4 class="font-bold mb-8 text-xs uppercase tracking-widest text-gray-500">System Inventory</h4>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center pb-4 border-b border-zinc-800">
+                            <span class="text-sm text-gray-400">Architecture</span>
+                            <span class="text-sm font-semibold">x86_64_R1</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-zinc-800">
+                            <span class="text-sm text-gray-400">Environment</span>
+                            <span class="text-sm font-semibold">Workstation</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-zinc-800">
+                            <span class="text-sm text-gray-400">Current Build</span>
+                            <span class="text-sm font-semibold text-blue-500">2026.04.1-TP</span>
+                        </div>
+                    </div>
+                    <div class="mt-12">
+                        <a href="mailto:richardwojc@gmail.com" class="text-sm text-blue-500 hover:text-blue-400 font-medium inline-flex items-center gap-2">
+                            Request Direct Developer Access
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-12 px-6 border-t border-zinc-900 text-sm text-zinc-500 mt-20">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
+    <footer class="py-20 px-6 border-t border-zinc-900 text-sm text-gray-500 mt-40">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="flex flex-col gap-4">
                 <img src="assets/rtech_logo.png" alt="RTECH Logo" class="h-10 w-auto grayscale opacity-50">
+                <span class="text-xs text-gray-600">&copy; 2026 RTECH Technologies. Personal Sovereignty through Engineering.</span>
             </div>
-            <span>&copy; 2026 RTECH Technologies</span>
+            <div class="flex gap-8">
+                <a href="index.html" class="hover:text-white transition-colors">Overview</a>
+                <a href="mailto:richardwojc@gmail.com" class="hover:text-white transition-colors">Contact</a>
+            </div>
         </div>
     </footer>
 
