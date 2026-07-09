@@ -228,7 +228,7 @@ _start:
         async function checkAvailability() {
             const btn = document.getElementById('download-btn');
             const status = document.getElementById('system-status');
-            const targetPath = 'isos/os2_latest.iso';
+            const targetPath = 'iso/os2_latest.iso';
 
             try {
                 const response = await fetch(targetPath, { method: 'HEAD' });
@@ -243,9 +243,9 @@ _start:
                     throw new Error('404');
                 }
             } catch (error) {
-                btn.innerText = "Build Syncing...";
+                btn.innerText = "Please wait...";
                 btn.disabled = true;
-                status.innerText = "Status: Mirror Sync in Progress";
+                status.innerText = "Status: Mirror Sync in Progress - Please wait for build availability";
             }
         }
         // Artificial delay to simulate "integrity check"
