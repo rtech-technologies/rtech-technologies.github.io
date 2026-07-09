@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTECH | OS*2 Deployment & Resources</title>
+    <title>RTECH | OS*2 Personal Edition & Resources</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -83,15 +83,15 @@
     </a>
 
     <nav class="glass-nav sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between h-16 items-center">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
             <div class="flex items-center gap-8">
                 <a href="index.html" class="flex items-center gap-2">
-                    <img src="assets/rtech_logo.png" alt="RTECH Logo" class="h-8 w-auto">
+                    <img src="assets/rtech_logo.png" alt="RTECH Logo" class="h-14 w-auto">
                 </a>
                 <div class="hidden md:flex gap-6">
                     <a href="index.html" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Overview</a>
                     <a href="#specs" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Specifications</a>
-                    <a href="#deployment" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Deployment</a>
+                    <a href="#deployment" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Download</a>
                 </div>
             </div>
             <div class="text-xs font-semibold px-3 py-1 rounded bg-zinc-800 border border-zinc-700">v2026.04.1</div>
@@ -101,19 +101,19 @@
     <main id="main-content" tabindex="-1" class="max-w-7xl mx-auto px-6 py-20 focus:outline-none">
         
         <header class="mb-20">
-            <div class="status-badge mb-6">Technical Preview</div>
-            <h1 class="text-5xl font-extrabold tracking-tight mb-6">OS*2 Infrastructure</h1>
+            <div class="status-badge mb-6">Public Development Preview</div>
+            <h1 class="text-5xl font-extrabold tracking-tight mb-6">OS*2 Professional</h1>
             <p class="text-zinc-400 max-w-2xl text-lg leading-relaxed">
-                The secure kernel designed for R1 hardware. Built with transparency at its core, enabling direct hardware interaction with professional-grade security.
+                The secure workstation OS you actually own. Modernized stability and raw bare-metal performance, completely stripped of corporate agenda and background telemetry.
             </p>
         </header>
 
         <section id="specs" class="mb-32">
             <div class="grid lg:grid-cols-2 gap-16 items-start">
                 <div>
-                    <h2 class="text-2xl font-bold mb-6">System Architecture</h2>
+                    <h2 class="text-2xl font-bold mb-6">OS Architecture</h2>
                     <p class="text-zinc-400 mb-8 leading-relaxed">
-                        OS*2 implements a "Zero-Layer" approach. By mapping system operations directly to hardware logic, we eliminate the latency and obfuscation found in traditional enterprise operating systems.
+                        OS*2 implements a "Zero-Layer" approach. By mapping system operations directly to hardware logic, we eliminate the latency and obfuscation found in traditional operating systems.
                     </p>
 
                     <div class="space-y-4">
@@ -122,8 +122,8 @@
                             <p class="text-sm text-zinc-400">Low-level optimization ensures every cycle is accounted for and verifiable.</p>
                         </div>
                         <div class="card p-6">
-                            <h4 class="font-bold text-blue-400 mb-2">User-Centric Security</h4>
-                            <p class="text-sm text-zinc-400">The kernel respects user property. No remote telemetry, no forced updates, no unauthorized access.</p>
+                            <h4 class="font-bold text-blue-400 mb-2">Private & Secure</h4>
+                            <p class="text-sm text-zinc-400">The kernel respects your privacy. No remote telemetry, no forced updates, and no background tracking.</p>
                         </div>
                     </div>
                 </div>
@@ -147,14 +147,14 @@ _start:
         </section>
 
         <section id="deployment" class="pt-20 border-t border-zinc-900">
-            <h2 class="text-2xl font-bold mb-8">Deployment Node</h2>
+            <h2 class="text-2xl font-bold mb-8">Reclaim Your Hardware</h2>
             
             <div class="grid lg:grid-cols-3 gap-12 items-start">
                 <div class="lg:col-span-2">
                     <div class="card p-8 border-blue-500/20 bg-blue-500/5 mb-8">
-                        <h3 class="text-xl font-bold mb-4">Ready for Download</h3>
+                        <h3 class="text-xl font-bold mb-4">OS*2 Build Access</h3>
                         <p class="text-zinc-400 mb-8 text-sm leading-relaxed">
-                            Verify the checksum of your build before flashing to hardware. For initial evaluation, we recommend deploying in a virtualized environment.
+                            Experience 100% of your hardware's potential. No forced accounts, no lock-screen ads, no compromises. Local sovereignty starts here.
                         </p>
 
                         <div class="flex items-center gap-3 mb-10">
@@ -166,7 +166,7 @@ _start:
                         </div>
 
                         <button id="download-btn" class="btn-primary" disabled>
-                            Initializing Build...
+                            Accessing Core Build...
                         </button>
                     </div>
 
@@ -175,9 +175,9 @@ _start:
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
                         </svg>
                         <div>
-                            <h4 class="text-amber-500 font-bold text-sm mb-1">Pre-Stable Advisory</h4>
+                            <h4 class="text-amber-500 font-bold text-sm mb-1">Developer Preview Advisory</h4>
                             <p class="text-xs text-amber-500/80 leading-relaxed">
-                                This build is intended for developers and technical evaluation. Ensure all data is backed up before proceeding with a bare-metal installation.
+                                RTECH is currently in active development. This build is intended for power users and backers. Always back up your files before a bare-metal installation.
                             </p>
                         </div>
                     </div>
@@ -200,7 +200,7 @@ _start:
                         </li>
                     </ul>
                     <div class="mt-8">
-                        <a href="mailto:richardwojc@gmail.com" class="text-xs text-blue-500 hover:underline">Request enterprise support →</a>
+                        <a href="mailto:richardwojc@gmail.com" class="text-xs text-blue-500 hover:underline">Get Direct Engineering Access →</a>
                     </div>
                 </div>
             </div>
@@ -210,9 +210,9 @@ _start:
     <footer class="py-12 px-6 border-t border-zinc-900 text-sm text-zinc-500 mt-20">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
-                <img src="assets/rtech_logo.png" alt="RTECH Logo" class="h-6 w-auto grayscale opacity-50">
+                <img src="assets/rtech_logo.png" alt="RTECH Logo" class="h-10 w-auto grayscale opacity-50">
             </div>
-            <span>&copy; 2026 ISO_DEPLOYMENT_STATION</span>
+            <span>&copy; 2026 RTECH Technologies</span>
         </div>
     </footer>
 

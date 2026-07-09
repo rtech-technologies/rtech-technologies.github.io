@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTECH | Enterprise Infrastructure & Secure OS</title>
+    <title>RTECH | Personal Computing & Secure OS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -37,7 +37,11 @@
         }
         
         .hero-gradient {
-            background: radial-gradient(circle at 50% 0%, rgba(0, 120, 212, 0.15) 0%, transparent 60%);
+            background:
+                radial-gradient(circle at 50% 0%, rgba(0, 168, 168, 0.15) 0%, transparent 60%),
+                linear-gradient(rgba(48, 54, 61, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(48, 54, 61, 0.1) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
         }
 
         .btn-primary {
@@ -80,20 +84,20 @@
     </a>
 
     <nav class="glass-nav sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between h-16 items-center">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
             <div class="flex items-center gap-8">
                 <a href="index.html" class="flex items-center gap-2">
-                    <img src="assets/rtech_logo.png" alt="RTECH Logo" class="h-8 w-auto">
+                    <img src="assets/rtech_logo.png" alt="RTECH Logo" class="h-14 w-auto">
                 </a>
                 <div class="hidden md:flex gap-6">
-                    <a href="#infrastructure" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Infrastructure</a>
+                    <a href="#features" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Features</a>
                     <a href="#roadmap" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Roadmap</a>
                     <a href="#license" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Governance</a>
                 </div>
             </div>
             <div class="flex items-center gap-4">
                 <a href="os2.html" class="btn-primary text-sm">
-                    Get OS*2
+                    Get OS*2 Professional
                 </a>
             </div>
         </div>
@@ -108,37 +112,37 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                     </span>
-                    Now in Technical Preview: R1 Workstation
+                    Now in Technical Preview: R1 Home Pro
                 </div>
                 <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 azure-text-gradient">
-                    Secure infrastructure for<br>the enterprise era.
+                    The secure OS you<br>actually own.
                 </h1>
                 <p class="text-zinc-400 max-w-2xl mx-auto text-lg md:text-xl mb-12">
-                    RTECH provides the industrial foundation for advanced hardware. Deploy highly-available, transparent systems with professional management and control.
+                    Stripped of bloat, telemetry, and corporate agendas. RTECH is a modernized, lightning-fast workstation designed to manage your hardware and files—nothing else.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="os2.html" class="btn-primary">
-                        Explore OS*2
+                        Get OS*2 Professional
                     </a>
-                    <a href="#infrastructure" class="btn-outline">
-                        View Infrastructure
+                    <a href="#features" class="btn-outline">
+                        Explore the Paradigm
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- Features Section -->
-        <section id="infrastructure" class="max-w-7xl mx-auto px-6 py-32 border-t border-zinc-900">
+        <section id="features" class="max-w-7xl mx-auto px-6 py-32 border-t border-zinc-900">
             <div class="grid lg:grid-cols-3 gap-8">
                 <div class="card p-8">
                     <div class="w-10 h-10 rounded bg-blue-500/10 flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Enterprise Security</h3>
+                    <h3 class="text-xl font-bold mb-4">Absolute Sovereignty</h3>
                     <p class="text-zinc-400 text-sm leading-relaxed">
-                        Hardware-level transparency with rigorous security standards. Your data stays on your silicon, under your organizational rules.
+                        Zero internet required to function. No cloud accounts, no forced updates, and no background indexing. Your machine is your castle.
                     </p>
                 </div>
                 <div class="card p-8">
@@ -147,20 +151,20 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">High Performance</h3>
+                    <h3 class="text-xl font-bold mb-4">Raw Performance</h3>
                     <p class="text-zinc-400 text-sm leading-relaxed">
-                        Built on optimized logic for direct hardware interaction. Eliminate unnecessary abstraction layers and maximize system performance.
+                        We don't waste cycles spying on you. Reclaim 100% of your CPU and RAM for your apps and games. Absolute bare-metal efficiency.
                     </p>
                 </div>
                 <div class="card p-8">
                     <div class="w-10 h-10 rounded bg-purple-500/10 flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Open Architecture</h3>
+                    <h3 class="text-xl font-bold mb-4">Classic Paradigm</h3>
                     <p class="text-zinc-400 text-sm leading-relaxed">
-                        Accessible design allows for deep optimization. From kernel tuning to hardware reconfiguration, the control is yours.
+                        A distraction-free, deterministic environment. It stays out of your way and lets you work. Modernized stability, classic control.
                     </p>
                 </div>
             </div>
@@ -170,23 +174,23 @@
         <section class="bg-zinc-900/30 border-y border-zinc-900 py-32 px-6">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
                 <div>
-                    <h2 class="text-blue-500 font-bold text-sm tracking-wider uppercase mb-4">Integrity first</h2>
-                    <h3 class="text-4xl font-bold mb-8">Professional systems for complete user control.</h3>
+                    <h2 class="text-blue-500 font-bold text-sm tracking-wider uppercase mb-4">User First</h2>
+                    <h3 class="text-4xl font-bold mb-8">Unrestricted Customization.</h3>
                     <p class="text-zinc-400 mb-8">
-                        We believe that professionalism means respecting the user. RTECH hardware and software are designed to be tools that you truly manage. No forced updates, no invasive telemetry, and no compromises.
+                        We've removed the corporate licensing loopholes and anti-tamper mechanisms. RTECH is your open playground—aggressively decorate and modify your desktop however you see fit.
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
                             <svg class="w-5 h-5 text-blue-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span>Verified hardware identity and logic</span>
+                            <span>Absolute local master of your own data</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <svg class="w-5 h-5 text-blue-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span>Transparent commercial licensing (RSL-2026)</span>
+                            <span>Modernized Windows 7 functionality</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <svg class="w-5 h-5 text-blue-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span>Direct technical support from engineering</span>
+                            <span>Direct Engineering Access for backers</span>
                         </li>
                     </ul>
                 </div>
@@ -200,7 +204,7 @@
                                 <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
                             </div>
                             <pre class="text-blue-400 text-sm font-mono leading-relaxed">
-; Initializing R1 Secure Node
+; Initializing R1 Secure Core
 [SYSTEM] Checking Logic Integrity...
 [PASSED] No unauthorized backdoors detected.
 [SYSTEM] User Control Level: ADMINISTRATOR
@@ -218,13 +222,13 @@
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="relative pl-12 border-l border-zinc-800">
                     <div class="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(0,120,212,0.5)]"></div>
-                    <h4 class="text-xl font-bold mb-2">Q1 2026: The R1 Node</h4>
-                    <p class="text-zinc-400 text-sm">Release of the primary desktop architecture with integrated OS*2 support and workstation-grade performance.</p>
+                    <h4 class="text-xl font-bold mb-2">Q1 2026: The R1 Core</h4>
+                    <p class="text-zinc-400 text-sm">Release of the primary desktop architecture with integrated OS*2 support and high-end personal performance.</p>
                 </div>
                 <div class="relative pl-12 border-l border-zinc-800">
                     <div class="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-700"></div>
-                    <h4 class="text-xl font-bold mb-2">Q3 2026: Enterprise Server Units</h4>
-                    <p class="text-zinc-400 text-sm">Scaling to the rack. High-density compute nodes designed for privacy-conscious data centers.</p>
+                    <h4 class="text-xl font-bold mb-2">Q3 2026: Home Lab Modules</h4>
+                    <p class="text-zinc-400 text-sm">Scaling to the personal server. High-density compute modules designed for private hosting and local AI.</p>
                 </div>
             </div>
         </section>
@@ -238,16 +242,16 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="card p-6 border-zinc-800">
-                        <h5 class="font-bold mb-3 text-blue-400">01. Ownership Policy</h5>
-                        <p class="text-xs text-zinc-500 leading-relaxed">Optimization of your own property is encouraged and protected. Management belongs to the hardware owner.</p>
+                        <h5 class="font-bold mb-3 text-blue-400">01. Public Access</h5>
+                        <p class="text-xs text-zinc-500 leading-relaxed">We build in the open. General support and bug tracking are handled through our public dev trackers.</p>
                     </div>
                     <div class="card p-6 border-zinc-800">
                         <h5 class="font-bold mb-3 text-blue-400">02. Rule Persistence</h5>
-                        <p class="text-xs text-zinc-500 leading-relaxed">The RTECH core principles are persistent. They protect the user against future unauthorized overreach.</p>
+                        <p class="text-xs text-zinc-500 leading-relaxed">The RTECH core principles are persistent. They protect you against future corporate software overreach.</p>
                     </div>
                     <div class="card p-6 border-zinc-800">
-                        <h5 class="font-bold mb-3 text-blue-400">03. Commercial Use</h5>
-                        <p class="text-xs text-zinc-500 leading-relaxed">Transparent profit sharing for commercial entities building upon RTECH infrastructure.</p>
+                        <h5 class="font-bold mb-3 text-blue-400">03. Engineering Access</h5>
+                        <p class="text-xs text-zinc-500 leading-relaxed">Backers get a direct line to the engineering team for bare-metal compatibility and core feature requests.</p>
                     </div>
                 </div>
             </div>
@@ -255,16 +259,16 @@
 
         <!-- CTA -->
         <section class="py-40 px-6 text-center">
-            <h2 class="text-4xl font-bold mb-8">Ready to enhance your digital space?</h2>
+            <h2 class="text-4xl font-bold mb-8">Ready to reclaim your hardware?</h2>
             <p class="text-zinc-400 max-w-xl mx-auto mb-12">
-                Join the engineering preview today and start building on a foundation of true control.
+                Join the engineering preview today and experience an OS that stays out of your way.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="os2.html" class="btn-primary px-12 py-4">
-                    Deploy OS*2
+                    Get OS*2 Professional
                 </a>
                 <a href="mailto:richardwojc@gmail.com" class="btn-outline px-12 py-4">
-                    Contact Engineering
+                    Direct Engineering Access
                 </a>
             </div>
         </section>
@@ -273,7 +277,7 @@
     <footer class="py-12 px-6 border-t border-zinc-900 text-sm text-zinc-500">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
-                <img src="assets/rtech_logo.png" alt="RTECH Logo" class="h-6 w-auto grayscale opacity-50">
+                <img src="assets/rtech_logo.png" alt="RTECH Logo" class="h-10 w-auto grayscale opacity-50">
             </div>
             <div class="flex gap-8">
                 <span>&copy; 2026 RTECH Technologies</span>
