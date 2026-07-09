@@ -93,7 +93,7 @@
                     <a href="#deployment" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Download</a>
                 </div>
             </div>
-            <div class="text-xs font-semibold px-3 py-1 rounded bg-zinc-800 border border-zinc-700">v2026.04.1</div>
+            <div class="text-xs font-semibold px-3 py-1 rounded bg-zinc-800 border border-zinc-700">v2026.07.09</div>
         </div>
     </nav>
 
@@ -108,28 +108,134 @@
         </header>
 
         <section id="specs" class="mb-40">
-            <h2 class="text-3xl font-bold mb-16">Technical Architecture</h2>
-            <div class="grid lg:grid-cols-3 gap-12">
+            <h2 class="text-3xl font-bold mb-16">Engineering Architecture</h2>
+
+            <div class="grid lg:grid-cols-2 gap-12 mb-12">
+                <!-- User Applications -->
                 <div class="card p-10 bg-[#0e1117] border-zinc-800">
-                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-8">
-                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    <h3 class="text-xl font-bold mb-6 text-blue-400">Integrated User Suite</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-xs uppercase text-gray-500 mb-2">Interface</h4>
+                            <p class="text-sm text-gray-400">Shell CLI environment wrapper for direct system interaction.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xs uppercase text-gray-500 mb-2">Productivity</h4>
+                            <p class="text-sm text-gray-400">Notepad text utility and Studio creative environment.</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Zero-Layer Logic</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">System operations map directly to hardware logic, eliminating the obfuscation layers present in legacy kernels.</p>
                 </div>
+
+                <!-- GUI & Graphics -->
                 <div class="card p-10 bg-[#0e1117] border-zinc-800">
-                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-8">
-                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Atomic Sovereignty</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">No remote telemetry. Every background process is user-verifiable and operates within a strict local-only sandbox.</p>
+                    <h3 class="text-xl font-bold mb-6 text-blue-400">Graphics Pipeline</h3>
+                    <p class="text-sm text-gray-400 mb-4">High-performance immediate-mode GUI backed by the Nuklear framework and custom software rendering.</p>
+                    <ul class="text-xs text-gray-500 grid grid-cols-2 gap-2">
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-blue-500"></div>
+                            NanoSVG Vector Engine
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-blue-500"></div>
+                            STB Raster Decoding
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-blue-500"></div>
+                            TGX Framework
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-blue-500"></div>
+                            Native Asset Support
+                        </li>
+                    </ul>
                 </div>
-                <div class="card p-10 bg-[#0e1117] border-zinc-800">
-                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-8">
-                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Kernel Core -->
+                <div class="card p-8 bg-[#0e1117] border-zinc-800">
+                    <h4 class="font-bold mb-4">Kernel Foundations</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">Built on modern x86_64 architecture with TLSF constant-time allocation and Atomic Sovereignty scheduling.</p>
+                    <div class="space-y-3">
+                        <div class="flex justify-between border-b border-zinc-900 pb-2">
+                            <span class="text-[10px] text-gray-600">Bootloader</span>
+                            <span class="text-[10px] font-mono">Limine (UEFI/BIOS)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-zinc-900 pb-2">
+                            <span class="text-[10px] text-gray-600">Interrupts</span>
+                            <span class="text-[10px] font-mono">APIC / ISR Stubs</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[10px] text-gray-600">Memory</span>
+                            <span class="text-[10px] font-mono">PMM / TLSF</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Raw Performance</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Optimized scheduler that prioritizes low-latency workstation tasks over background indexing or update services.</p>
+                </div>
+
+                <!-- Storage -->
+                <div class="card p-8 bg-[#0e1117] border-zinc-800">
+                    <h4 class="font-bold mb-4">Storage & VFS</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">Unified Virtual File System supporting local disk management and high-speed memory-backed volumes.</p>
+                    <div class="space-y-3">
+                        <div class="flex justify-between border-b border-zinc-900 pb-2">
+                            <span class="text-[10px] text-gray-600">File System</span>
+                            <span class="text-[10px] font-mono">FatFs (Unicode)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-zinc-900 pb-2">
+                            <span class="text-[10px] text-gray-600">NVMe / AHCI</span>
+                            <span class="text-[10px] font-mono">Native SSD/SATA</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[10px] text-gray-600">Ramdisk</span>
+                            <span class="text-[10px] font-mono">Memory-Backed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peripheral -->
+                <div class="card p-8 bg-[#0e1117] border-zinc-800">
+                    <h4 class="font-bold mb-4">Peripheral Stack</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">Full host controller functionality via the CherryUSB stack, supporting legacy and modern input devices.</p>
+                    <div class="space-y-3">
+                        <div class="flex justify-between border-b border-zinc-900 pb-2">
+                            <span class="text-[10px] text-gray-600">USB 2.0 / 3.0</span>
+                            <span class="text-[10px] font-mono">EHCI / XHCI</span>
+                        </div>
+                        <div class="flex justify-between border-b border-zinc-900 pb-2">
+                            <span class="text-[10px] text-gray-600">HID / MSC</span>
+                            <span class="text-[10px] font-mono">CherryUSB Classes</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-[10px] text-gray-600">Legacy I/O</span>
+                            <span class="text-[10px] font-mono">PS2 / Serial</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OS Services -->
+            <div class="mt-8 card p-10 bg-[#0e1117] border-zinc-800 flex flex-col md:flex-row justify-between gap-12">
+                <div class="max-w-md">
+                    <h4 class="font-bold mb-4">Core Services</h4>
+                    <p class="text-sm text-gray-400">Deep system infrastructure providing networking, security, and global compatibility.</p>
+                </div>
+                <div class="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 bg-[#0b0e14] border border-zinc-900 rounded-lg text-center">
+                        <span class="text-[10px] font-bold text-blue-500 uppercase">Networking</span>
+                        <p class="text-[10px] text-gray-600 mt-1">Virtio / Stack</p>
+                    </div>
+                    <div class="p-4 bg-[#0b0e14] border border-zinc-900 rounded-lg text-center">
+                        <span class="text-[10px] font-bold text-blue-500 uppercase">Compatibility</span>
+                        <p class="text-[10px] text-gray-600 mt-1">Linux Shim Layer</p>
+                    </div>
+                    <div class="p-4 bg-[#0b0e14] border border-zinc-900 rounded-lg text-center">
+                        <span class="text-[10px] font-bold text-blue-500 uppercase">Registry</span>
+                        <p class="text-[10px] text-gray-600 mt-1">Global Config</p>
+                    </div>
+                    <div class="p-4 bg-[#0b0e14] border border-zinc-900 rounded-lg text-center">
+                        <span class="text-[10px] font-bold text-blue-500 uppercase">Security</span>
+                        <p class="text-[10px] text-gray-600 mt-1">UAC Policy</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -176,15 +282,23 @@
                     <div class="space-y-6">
                         <div class="flex justify-between items-center pb-4 border-b border-zinc-800">
                             <span class="text-sm text-gray-400">Architecture</span>
-                            <span class="text-sm font-semibold">x86_64_R1</span>
+                            <span class="text-sm font-semibold">x86_64_RTC64</span>
                         </div>
                         <div class="flex justify-between items-center pb-4 border-b border-zinc-800">
-                            <span class="text-sm text-gray-400">Environment</span>
-                            <span class="text-sm font-semibold">Workstation</span>
+                            <span class="text-sm text-gray-400">Memory (Min)</span>
+                            <span class="text-sm font-semibold">512 MB RAM</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-zinc-800">
+                            <span class="text-sm text-gray-400">Kernel Size</span>
+                            <span class="text-sm font-semibold">732.1 KB</span>
                         </div>
                         <div class="flex justify-between items-center pb-4 border-b border-zinc-800">
                             <span class="text-sm text-gray-400">Current Build</span>
-                            <span class="text-sm font-semibold text-blue-500">2026.04.1-TP</span>
+                            <span class="text-sm font-semibold text-blue-500">2026.07.09-STABLE</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-zinc-800">
+                            <span class="text-sm text-gray-400">Build Mode</span>
+                            <span class="text-sm font-semibold">High-Power</span>
                         </div>
                     </div>
                     <div class="mt-12">
