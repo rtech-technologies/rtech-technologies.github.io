@@ -227,7 +227,7 @@
                     status.classList.remove('text-emerald-500');
                     status.classList.add('text-blue-500');
                 } else {
-                    throw new Error('404');
+                    throw new Error('No ISO asset found in latest release');
                 }
             } catch (error) {
                 btn.innerText = "Please wait...";
